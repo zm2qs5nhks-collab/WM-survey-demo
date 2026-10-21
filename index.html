@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ==========================================================================
+     ⚠️ 这是一个模板。下面 12 处 <!== 改这里 ==> 标出了你必须替换的内容。
+     搜索 "改这里" 就能逐个找到。示例内容全部是编造的，仅用于展示排版效果。
+     ========================================================================== -->
+
+<title>Sample Survey Title: A Template Survey Site</title>
+<meta name="description" content="A single-page academic survey site template: hero, taxonomy, timeline, benchmark tables, BibTeX. Static HTML/CSS, no build step, deploy on GitHub Pages with your own domain.">
+<meta name="author" content="First Author, Second Author, Third Author">
+<link rel="canonical" href="https://example.com/">
+
+<!-- 社交分享卡片。上传一张 1200×630 的图，替换下面的 og-cover.png -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sample Survey Title: A Template Survey Site">
+<meta property="og:description" content="A single-page academic survey site template.">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sample Survey Title: A Template Survey Site">
+<meta name="twitter:description" content="A single-page academic survey site template.">
+<meta name="twitter:image" content="https://example.com/assets/og-cover.png">
+
+<!-- 图标：内联 data URI，省一次请求，也避免 404 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234f46e5'/%3E%3Ctext x='50' y='68' font-size='58' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- 结构化数据：让 Google 正确索引作者与标题，学术站很值得加 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Sample Survey Title: A Template Survey Site",
+  "author": [
+    { "@type": "Person", "name": "First Author" },
+    { "@type": "Person", "name": "Second Author" },
+    { "@type": "Person", "name": "Third Author" }
+  ],
+  "datePublished": "2025-01-01",
+  "url": "https://example.com/",
+  "abstract": "A single-page academic survey site template."
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ======================= 导航 ======================= -->
+<!-- <!== 改这里 1/12: 站点简称 --> 
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-brand" href="#top">Sample<span>Survey</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#taxonomy">Taxonomy</a>
+      <a href="#methods">Methods</a>
+      <a href="#systems">Systems</a>
+      <a href="#evaluation">Evaluation</a>
+      <a href="#resources">Resources</a>
+      <a href="#challenges">Challenges</a>
+      <a href="#cite">Cite</a>
+    </nav>
+    <div class="nav-prog" id="prog"></div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======================= Hero ======================= -->
+<section class="hero" id="top" style="border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <!-- <!== 改这里 2/12: 顶部标签 --> 
+    <p class="eyebrow">Comprehensive Survey <b>·</b> Sample Topic <b>·</b> 2025</p>
+
+    <!-- <!== 改这里 3/12: 标题与一句话简介 --> 
+    <h1>Sample Survey Title: A Template for Single-Page Survey Sites</h1>
+    <p class="lede">
+      Replace this paragraph with one or two sentences that say what the survey covers,
+      what it organises, and who should read it. Keep it under ~40 words — this is the
+      text that appears in search results and social cards.
+    </p>
+
+    <!-- <!== 改这里 4/12: 作者与单位。a 标签指向个人主页，不想链接就删掉 href --> 
+    <p class="authors">
+      <a href="#">First Author</a><sup>1,*</sup>,
+      <a href="#">Second Author</a><sup>1,*</sup>,
+      <a href="#">Third Author</a><sup>2</sup>,
+      <a href="#">Fourth Author</a><sup>3</sup>,
+      <a href="#">Fifth Author</a><sup>1,†</sup>
+    </p>
+    <p class="affil">
+      <sup>1</sup>Your University &nbsp;·&nbsp;
+      <sup>2</sup>Another University &nbsp;·&nbsp;
+      <sup>3</sup>A Company or Institute
+    </p>
+    <p class="author-note"><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>†</sup>Corresponding author</p>
+
+    <!-- <!== 改这里 5/12: 资源链接。arXiv / PDF / GitHub / 数据 / 联系邮箱 --> 
+    <div class="cta">
+      <a class="btn btn-primary" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        Paper (PDF)
+      </a>
+      <a class="btn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 4.7 18.2 5 18.2 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="#resources">Datasets</a>
+      <a class="btn" href="#cite">BibTeX</a>
+      <a class="btn" href="mailto:corresponding@example.com">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Abstract ======================= -->
+<section id="abstract">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Abstract</p>
+      <h2>The one-paragraph version</h2>
+    </div>
+    <div class="read">
+      <p class="dropcap">
+        Write the abstract here. A useful shape for a survey abstract is: (1) the problem area
+        and why it matters now; (2) what makes this survey different from existing ones;
+        (3) the organising principle — in what dimensions you classify the literature;
+        (4) what practitioners and researchers can take away. Three to five sentences is
+        usually enough on a web page, even if the PDF abstract is longer.
+      </p>
+      <p>
+        The rest of this template demonstrates every component you are likely to need:
+        highlighted contribution cards, a research timeline, a taxonomy with figures,
+        benchmark tables, a BibTeX block with a copy button, and footer/licence text.
+        Delete what you do not use — the page gets faster and easier to maintain.
+      </p>
+    </div>
+
+    <!-- <!== 改这里 6/12: 三个（或四个）核心贡献卡片 --> 
+    <div class="grid g3" style="margin-top:38px">
+      <article class="card reveal">
+        <span class="card-num">01</span>
+        <h3>First organising axis</h3>
+        <p>One sentence on what this axis separates, e.g. the architectural paradigms you use to group methods.</p>
+        <div class="tag-row"><span class="tag">axis one</span><span class="tag alt">key idea</span></div>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">02</span>
+        <h3>Second organising axis</h3>
+        <p>One sentence on the second axis, e.g. how methods are used in practice rather than how they are built.</p>
+        <div class="tag-row"><span class="tag">axis two</span><span class="tag alt">practice</span></div>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">03</span>
+        <h3>Third organising axis</h3>
+        <p>One sentence on the third axis, e.g. resources, benchmarks, or evaluation protocols.</p>
+        <div class="tag-row"><span class="tag">axis three</span><span class="tag alt">resources</span></div>
+      </article>
+    </div>
+
+    <figure class="fig-zoom reveal">
+      <a href="assets/overview.svg" target="_blank" rel="noopener">
+        <img src="assets/overview.svg" alt="Survey organisation overview" width="1600" height="820" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Figure 1.</b> How the survey is organised. Replace <code>assets/overview.svg</code> with your own figure of the same name.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= Timeline ======================= -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Timeline</p>
+      <h2>How the field moved</h2>
+      <p>
+        Timelines date fast. Put the coverage cut-off date in the heading or the first line,
+        and say how you will maintain it — reviewers and readers both look for that.
+      </p>
+    </div>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <span class="tl-when">2021 — early formulations</span>
+          <h4>Problem statements and first baselines</h4>
+          <p>What the earliest work established, and the assumptions later work had to drop.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-when">2022 — consolidation</span>
+          <h4>Unified pipelines appear</h4>
+          <ul>
+            <li>First end-to-end formulation</li>
+            <li>Standard benchmark introduced</li>
+            <li>Public implementations released</li>
+          </ul>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-when">2023 — scaling</span>
+          <h4>Scale changes the questions</h4>
+          <p>What stopped being the bottleneck, and what became one instead.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-when">2024 — systems</span>
+          <h4>From method to deployed system</h4>
+          <p>Engineering constraints enter the literature: latency, cost, robustness, evaluation.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-when">2025 — open problems</span>
+          <h4>Revisiting the fundamentals</h4>
+          <p>Which early assumptions turned out to be wrong, and what replaced them.</p>
+        </div>
+      </div>
+
+      <figure class="fig-zoom reveal" style="margin-top:0">
+        <a href="assets/timeline.svg" target="_blank" rel="noopener">
+          <img src="assets/timeline.svg" alt="Timeline of milestones" width="1800" height="760" loading="lazy" decoding="async">
+        </a>
+        <figcaption><b>Figure 2.</b> Timeline of representative milestones, through <b>DATE_TO_FILL</b>. Maintained continuously.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Taxonomy ======================= -->
+<section id="taxonomy">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Taxonomy</p>
+      <h2>How the methods relate</h2>
+      <p>State the classification rule explicitly. A reader should be able to place a new paper into exactly one branch without asking you.</p>
+    </div>
+
+    <figure class="fig-zoom reveal">
+      <a href="assets/taxonomy.svg" target="_blank" rel="noopener">
+        <img src="assets/taxonomy.svg" alt="Method taxonomy" width="1600" height="820" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Figure 3.</b> Taxonomy of approaches, grouped by mechanism rather than by application domain.</figcaption>
+    </figure>
+
+    <div class="grid g3">
+      <article class="card reveal">
+        <h3>Paradigm A — Modular pipeline</h3>
+        <p>Decomposed into stages that can be trained and replaced independently. Easy to analyse, harder to tune jointly.</p>
+        <div class="tag-row"><span class="tag">modular</span><span class="tag">interpretable</span></div>
+      </article>
+      <article class="card reveal">
+        <h3>Paradigm B — Shared backbone</h3>
+        <p>One network, several heads. Shares representation across tasks at the cost of coupling.</p>
+        <div class="tag-row"><span class="tag">shared</span><span class="tag">efficient</span></div>
+      </article>
+      <article class="card reveal">
+        <h3>Paradigm C — Expert fusion</h3>
+        <p>Specialised modules combined by routing or attention. Scales capacity, complicates training and serving.</p>
+        <div class="tag-row"><span class="tag alt">routing</span><span class="tag alt">capacity</span></div>
+      </article>
+      <article class="card reveal">
+        <h3>Paradigm D — Latent representation</h3>
+        <p>Compress the state instead of materialising a full high-dimensional output. Cheaper inference, harder to inspect.</p>
+        <div class="tag-row"><span class="tag alt">latent</span><span class="tag">compact</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Methods ======================= -->
+<section id="methods">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Method families</p>
+      <h2>Representative approaches in detail</h2>
+      <p>One figure and one paragraph per family is usually the right density. More than that and readers stop scrolling.</p>
+    </div>
+
+    <div class="grid g2">
+      <figure class="fig-zoom reveal" style="margin-top:0">
+        <a href="assets/fig-modular.svg" target="_blank" rel="noopener">
+          <img src="assets/fig-modular.svg" alt="Modular pipeline diagram" width="1400" height="700" loading="lazy" decoding="async">
+        </a>
+        <figcaption><b>Figure 4.</b> Modular pipeline: each stage can be validated on its own.</figcaption>
+      </figure>
+      <figure class="fig-zoom reveal" style="margin-top:0">
+        <a href="assets/fig-backbone.svg" target="_blank" rel="noopener">
+          <img src="assets/fig-backbone.svg" alt="Shared backbone diagram" width="1400" height="700" loading="lazy" decoding="async">
+        </a>
+        <figcaption><b>Figure 5.</b> Shared backbone: representation is the shared resource.</figcaption>
+      </figure>
+      <figure class="fig-zoom reveal" style="margin-top:0">
+        <a href="assets/fig-fusion.svg" target="_blank" rel="noopener">
+          <img src="assets/fig-fusion.svg" alt="Expert fusion diagram" width="1400" height="700" loading="lazy" decoding="async">
+        </a>
+        <figcaption><b>Figure 6.</b> Expert fusion: capacity scales with the number of experts.</figcaption>
+      </figure>
+      <figure class="fig-zoom reveal" style="margin-top:0">
+        <a href="assets/fig-latent.svg" target="_blank" rel="noopener">
+          <img src="assets/fig-latent.svg" alt="Latent representation diagram" width="1400" height="700" loading="lazy" decoding="async">
+        </a>
+        <figcaption><b>Figure 7.</b> Latent representation: prediction happens in a compact space.</figcaption>
+      </figure>
+    </div>
+
+    <div class="note read">
+      <p><strong>Writing tip.</strong> Each method paragraph reads best as: what problem it targets → the mechanism in one sentence → what it costs (compute, data, latency) → the evidence. Four sentences, no more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Systems ======================= -->
+<section id="systems">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Systems</p>
+      <h2>From method to working system</h2>
+      <p>If your field has a deployment gap, this is the section reviewers remember. Be concrete about constraints.</p>
+    </div>
+
+    <figure class="fig-zoom reveal">
+      <a href="assets/fig-systems.svg" target="_blank" rel="noopener">
+        <img src="assets/fig-systems.svg" alt="System integration diagram" width="1400" height="700" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Figure 8.</b> System integration: where research prototypes usually break.</figcaption>
+    </figure>
+
+    <div class="grid g4">
+      <article class="card reveal">
+        <h3>Latency budget</h3>
+        <p class="read">State the operating point in milliseconds, not adjectives.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Cost per episode</h3>
+        <p class="read">Hardware and cloud spend is a real research constraint.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Robustness</h3>
+        <p class="read">What happens out of distribution, and how it is detected.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Monitoring</h3>
+        <p class="read">How failures are found after deployment, not before.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Evaluation ======================= -->
+<section id="evaluation">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Evaluation</p>
+      <h2>Measuring the right thing</h2>
+      <p>Surveys earn citations when they tell readers which metric is actually informative — and which one is gamed.</p>
+    </div>
+
+    <figure class="fig-zoom reveal">
+      <a href="assets/fig-eval.svg" target="_blank" rel="noopener">
+        <img src="assets/fig-eval.svg" alt="Evaluation protocol diagram" width="1400" height="700" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Figure 9.</b> A minimal evaluation protocol: benchmarks, metrics, ablations, reporting.</figcaption>
+    </figure>
+
+    <div class="note warn read">
+      <p><strong>Watch out.</strong> Call out metrics that correlate poorly with downstream utility. This is one of the most useful things a survey can do, and it is rarely done.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Resources ======================= -->
+<section id="resources">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Resources</p>
+      <h2>Datasets and benchmarks</h2>
+      <p>
+        These two tables are real HTML rather than images, so readers can select and search them,
+        screen readers can parse them, and they stay sharp on any display. Fill in your own rows.
+      </p>
+    </div>
+
+    <!-- <!== 改这里 7/12: 数据集表。加行 = 复制一个 <tr> --> 
+    <div class="table-wrap reveal">
+      <table>
+        <caption><b>Table 1.</b> Core attributes of representative resources.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Resource</th>
+            <th scope="col">Year</th>
+            <th scope="col">Scale</th>
+            <th scope="col">Modalities</th>
+            <th scope="col">Supervision</th>
+            <th scope="col">Licence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Resource-Alpha</th><td class="num">2022</td><td class="num">1.2M</td><td>RGB, depth</td><td>Dense labels</td><td>CC BY 4.0</td></tr>
+          <tr><th scope="row">Resource-Beta</th><td class="num">2023</td><td class="num">480K</td><td>RGB, audio</td><td>Weak labels</td><td>MIT</td></tr>
+          <tr><th scope="row">Resource-Gamma</th><td class="num">2024</td><td class="num">7.9M</td><td>Multi-view</td><td>Self-supervised</td><td>Research only</td></tr>
+          <tr><th scope="row">Resource-Delta</th><td class="num">2025</td><td class="num">2.1M</td><td>RGB, text</td><td>Instruction pairs</td><td>Apache 2.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">Replace these rows. Keep the <code>num</code> class on numeric cells — it enables tabular figures so columns align.</p>
+
+    <!-- <!== 改这里 8/12: 基准表。✓ / – / ✗ 用下面对应的 class --> 
+    <div class="table-wrap reveal">
+      <table>
+        <caption><b>Table 2.</b> Benchmark coverage. <span class="mark-y">✓</span> strong, <span class="mark-p">–</span> partial, <span class="mark-n">✗</span> limited.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Benchmark</th>
+            <th scope="col">Task type</th>
+            <th scope="col">Primary metric</th>
+            <th scope="col">Coverage A</th>
+            <th scope="col">Coverage B</th>
+            <th scope="col">Coverage C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Bench-One</th><td>Perception</td><td>Accuracy</td><td class="mark-y">✓</td><td class="mark-p">–</td><td class="mark-n">✗</td></tr>
+          <tr><th scope="row">Bench-Two</th><td>Control</td><td>Success rate</td><td class="mark-p">–</td><td class="mark-y">✓</td><td class="mark-n">✗</td></tr>
+          <tr><th scope="row">Bench-Three</th><td>Long horizon</td><td>Task completion</td><td class="mark-n">✗</td><td class="mark-p">–</td><td class="mark-y">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="link-list read reveal" style="margin-top:26px">
+      <li><span><a href="#">Curated paper list (GitHub)</a><br><span class="meta">Updated alongside this page; PRs welcome.</span></span></li>
+      <li><span><a href="#">Dataset download mirror</a><br><span class="meta">Use a mirror for large files — see the deployment notes.</span></span></li>
+      <li><span><a href="#">Code and reproduction scripts</a><br><span class="meta">Environment, seeds, and expected numbers.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= Challenges ======================= -->
+<section id="challenges">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Open problems</p>
+      <h2>What is still unsolved</h2>
+      <p>Phrase each item as a testable gap, not a wish. "X is unmeasured under condition Y" beats "X needs more work".</p>
+    </div>
+    <div class="grid g3">
+      <article class="card reveal">
+        <h3>Open problem one</h3>
+        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Open problem two</h3>
+        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Open problem three</h3>
+        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Open problem four</h3>
+        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Open problem five</h3>
+        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Open problem six</h3>
+        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Citation ======================= -->
+<section id="cite">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Citation</p>
+      <h2>BibTeX</h2>
+      <p>Keep the key stable once published — people will have it in their .bib files.</p>
+    </div>
+
+    <!-- <!== 改这里 9/12: BibTeX 内容，注意 key 与 year --> 
+    <div class="code-block reveal">
+      <button class="copy-btn" type="button" data-copy="#bibtex">Copy</button>
+      <pre id="bibtex"><code>@article{author2025samplesurvey,
+  title   = {Sample Survey Title: A Template for Single-Page Survey Sites},
+  author  = {Author, First and Author, Second and Author, Third},
+  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  year    = {2025}
+}</code></pre>
+    </div>
+
+    <div class="note read">
+      <p>Correspondence: <a href="mailto:corresponding@example.com">corresponding@example.com</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= 页脚 ======================= -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <!-- <!== 改这里 10/12: 版权与团队名 --> 
+      <p><strong>Sample Survey Team</strong></p>
+      <p>© <span id="year">2025</span>. Text and figures released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> unless stated otherwise.</p>
+      <p>Site last updated: <span id="updated">2025-01-01</span></p>
+    </div>
+    <div>
+      <p><strong>Links</strong></p>
+      <p><a href="#">Paper</a> · <a href="#">GitHub</a> · <a href="#">Datasets</a></p>
+      <!-- <!== 改这里 11/12: 隐私/统计说明，如果加了访问统计必须在这里披露 --> 
+      <p>No cookies, no tracking, no third-party requests.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   交互脚本：约 90 行原生 JS，无依赖。
+   功能：滚动进度条、章节高亮、滚动出现、复制 BibTeX、回到顶部、年份自动更新。
+   全部为渐进增强 —— 禁用 JS 时页面内容与排版完全不受影响。
+   ========================================================================== */
+(function () {
+  'use strict';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- 年份 / 更新时间 --- */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* --- 滚动进度条 + 回到顶部 --- */
+  var prog = document.getElementById('prog');
+  var toTop = document.getElementById('toTop');
+  var ticking = false;
+
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    if (prog) prog.style.width = pct.toFixed(2) + '%';
+    if (toTop) toTop.classList.toggle('show', h.scrollTop > 700);
+    ticking = false;
+  }
+  function requestScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  }
+  window.addEventListener('scroll', requestScroll, { passive: true });
+  onScroll();
+
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* --- 章节高亮：用 IntersectionObserver，比 scroll 里算 offsetTop 稳 --- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var linkFor = {};
+  navLinks.forEach(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    if (id) linkFor[id] = a;
+  });
+
+  var sections = document.querySelectorAll('main section[id]');
+  if ('IntersectionObserver' in window && sections.length) {
+    var visible = {};
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+      var best = null, bestRatio = 0;
+      Object.keys(visible).forEach(function (id) {
+        if (visible[id] > bestRatio) { bestRatio = visible[id]; best = id; }
+      });
+      navLinks.forEach(function (a) { a.classList.remove('active'); });
+      if (best && linkFor[best]) linkFor[best].classList.add('active');
+    }, { rootMargin: '-25% 0px -60% 0px', threshold: [0, 0.25, 0.5, 1] });
+    Array.prototype.forEach.call(sections, function (s) { spy.observe(s); });
+  }
+
+  /* --- 滚动出现 --- */
+  var revealables = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var ro = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    Array.prototype.forEach.call(revealables, function (el) { ro.observe(el); });
+  } else {
+    Array.prototype.forEach.call(revealables, function (el) { el.classList.add('in'); });
+  }
+
+  /* --- 复制按钮 --- */
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = document.querySelector(btn.getAttribute('data-copy'));
+      if (!target) return;
+      var text = target.innerText;
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('done');
+        setTimeout(function () { btn.textContent = old; btn.classList.remove('done'); }, 1600);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+      } else {
+        fallback(text, done);
+      }
+    });
+  });
+  function fallback(text, done) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) { /* 忽略：用户可手动选择 */ }
+    document.body.removeChild(ta);
+  }
+
+  /* --- data-theme="light|dark" 手动切换（可选）。默认跟随系统，无需按钮。 ---
+     想加切换按钮：<button onclick="document.documentElement.dataset.theme =
+     document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">主题</button>
+     CSS 里再补 [data-theme="dark"] 选择器即可。                              */
+})();
+</script>
+
+<!-- <!== 改这里 12/12: 访问统计（可选）。推荐 Cloudflare Web Analytics：
+     免费、无 cookie、不需要在页面上放 cookie 横幅。粘贴官方给的 script 即可。
+     用统计就必须同步更新页脚第 11 处的那句隐私说明。 --> 
+</body>
+</html>

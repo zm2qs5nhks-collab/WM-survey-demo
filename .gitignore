@@ -1,0 +1,19 @@
+# 本地产物，不要提交
+dist/
+*.log
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# 如果不想把开发工具带上线，取消下面这行的注释
+# tools/
+
+# 如果不想公开部署配置里的仓库信息，取消下面这行
+# deploy/

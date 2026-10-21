@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 换成你的真实域名
+Sitemap: https://example.com/sitemap.xml
