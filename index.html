@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- ==========================================================================
-     ⚠️ 这是一个模板。下面 12 处 <!== 改这里 ==> 标出了你必须替换的内容。
-     搜索 "改这里" 就能逐个找到。示例内容全部是编造的，仅用于展示排版效果。
+     World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World
+     Survey site. 内容取自论文正文与表格；图表为占位图，待替换为论文原图。
      ========================================================================== -->
 
-<title>Sample Survey Title: A Template Survey Site</title>
-<meta name="description" content="A single-page academic survey site template: hero, taxonomy, timeline, benchmark tables, BibTeX. Static HTML/CSS, no build step, deploy on GitHub Pages with your own domain.">
-<meta name="author" content="First Author, Second Author, Third Author">
-<link rel="canonical" href="https://example.com/">
+<title>World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World</title>
+<meta name="description" content="A comprehensive survey of predictive world models for Physical AI. Covers data foundations, predictive representations, simulation, policy learning, planning, execution-time correction, and the evidence for downstream utility.">
+<meta name="author" content="Anonymous Author(s)">
+<link rel="canonical" href="https://zm2qs5nhks-collab.github.io/WM-survey-demo/">
 
 <!-- 社交分享卡片。上传一张 1200×630 的图，替换下面的 og-cover.png -->
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sample Survey Title: A Template Survey Site">
-<meta property="og:description" content="A single-page academic survey site template.">
-<meta property="og:url" content="https://example.com/">
-<meta property="og:image" content="https://example.com/assets/og-cover.png">
+<meta property="og:title" content="World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World">
+<meta property="og:description" content="A comprehensive survey of predictive world models for Physical AI. Covers data foundations, predictive representations, simulation, policy learning, planning, execution-time correction, and the evidence for downstream utility.">
+<meta property="og:url" content="https://zm2qs5nhks-collab.github.io/WM-survey-demo/">
+<meta property="og:image" content="https://zm2qs5nhks-collab.github.io/WM-survey-demo/assets/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sample Survey Title: A Template Survey Site">
-<meta name="twitter:description" content="A single-page academic survey site template.">
-<meta name="twitter:image" content="https://example.com/assets/og-cover.png">
+<meta name="twitter:title" content="World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World">
+<meta name="twitter:description" content="A comprehensive survey of predictive world models for Physical AI. Covers data foundations, predictive representations, simulation, policy learning, planning, execution-time correction, and the evidence for downstream utility.">
+<meta name="twitter:image" content="https://zm2qs5nhks-collab.github.io/WM-survey-demo/assets/og-cover.png">
 
 <!-- 图标：内联 data URI，省一次请求，也避免 404 -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234f46e5'/%3E%3Ctext x='50' y='68' font-size='58' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
@@ -34,15 +34,11 @@
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
-  "headline": "Sample Survey Title: A Template Survey Site",
-  "author": [
-    { "@type": "Person", "name": "First Author" },
-    { "@type": "Person", "name": "Second Author" },
-    { "@type": "Person", "name": "Third Author" }
-  ],
-  "datePublished": "2025-01-01",
-  "url": "https://example.com/",
-  "abstract": "A single-page academic survey site template."
+  "headline": "World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World",
+  "author": [{ "@type": "Person", "name": "Anonymous Author(s)" }],
+  "datePublished": "2026-01-01",
+  "url": "https://zm2qs5nhks-collab.github.io/WM-survey-demo/",
+  "abstract": "A comprehensive survey of predictive world models for Physical AI. Covers data foundations, predictive representations, simulation, policy learning, planning, execution-time correction, and the evidence for downstream utility."
 }
 </script>
 </head>
@@ -50,20 +46,17 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ======================= 导航 ======================= -->
-<!-- <!== 改这里 1/12: 站点简称 --> 
 <header class="nav">
   <div class="nav-in">
-    <a class="nav-brand" href="#top">Sample<span>Survey</span></a>
+    <a class="nav-brand" href="#top">World<span>Models</span></a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#abstract">Abstract</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#taxonomy">Taxonomy</a>
-      <a href="#methods">Methods</a>
-      <a href="#systems">Systems</a>
+      <a href="#foundations">Foundations</a>
+      <a href="#data">Data</a>
+      <a href="#learning">Learning</a>
       <a href="#evaluation">Evaluation</a>
-      <a href="#resources">Resources</a>
-      <a href="#challenges">Challenges</a>
+      <a href="#synthesis">Synthesis</a>
+      <a href="#challenges">Open Problems</a>
       <a href="#cite">Cite</a>
     </nav>
     <div class="nav-prog" id="prog"></div>
@@ -75,45 +68,30 @@
 <!-- ======================= Hero ======================= -->
 <section class="hero" id="top" style="border-bottom:1px solid var(--border)">
   <div class="wrap">
-    <!-- <!== 改这里 2/12: 顶部标签 --> 
-    <p class="eyebrow">Comprehensive Survey <b>·</b> Sample Topic <b>·</b> 2025</p>
+    <p class="eyebrow">Comprehensive Survey <b>·</b> Physical AI <b>·</b> World Models</p>
 
-    <!-- <!== 改这里 3/12: 标题与一句话简介 --> 
-    <h1>Sample Survey Title: A Template for Single-Page Survey Sites</h1>
+    <h1>World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World</h1>
     <p class="lede">
-      Replace this paragraph with one or two sentences that say what the survey covers,
-      what it organises, and who should read it. Keep it under ~40 words — this is the
-      text that appears in search results and social cards.
+      A critical survey of predictive world models for embodied agents. We trace how prediction
+      enters simulation, policy learning, planning, and execution-time correction — and examine
+      the experimental evidence for when predictive capability actually improves downstream
+      decisions, and when it does not.
     </p>
 
-    <!-- <!== 改这里 4/12: 作者与单位。a 标签指向个人主页，不想链接就删掉 href --> 
     <p class="authors">
-      <a href="#">First Author</a><sup>1,*</sup>,
-      <a href="#">Second Author</a><sup>1,*</sup>,
-      <a href="#">Third Author</a><sup>2</sup>,
-      <a href="#">Fourth Author</a><sup>3</sup>,
-      <a href="#">Fifth Author</a><sup>1,†</sup>
+      <span>Anonymous Author(s)</span>
     </p>
-    <p class="affil">
-      <sup>1</sup>Your University &nbsp;·&nbsp;
-      <sup>2</sup>Another University &nbsp;·&nbsp;
-      <sup>3</sup>A Company or Institute
-    </p>
-    <p class="author-note"><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>†</sup>Corresponding author</p>
+    <p class="affil">Submitted for review &nbsp;·&nbsp; 2026</p>
+    <p class="author-note">Coverage Corpus: 758 provisional publication families &nbsp;·&nbsp; Core Evidence Set: 17 study families</p>
 
-    <!-- <!== 改这里 5/12: 资源链接。arXiv / PDF / GitHub / 数据 / 联系邮箱 --> 
     <div class="cta">
-      <a class="btn btn-primary" href="#" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="#cite">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        Paper (PDF)
+        Paper
       </a>
-      <a class="btn" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 4.7 18.2 5 18.2 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
-        GitHub
-      </a>
-      <a class="btn" href="#resources">Datasets</a>
+      <a class="btn" href="#data">Tables</a>
       <a class="btn" href="#cite">BibTeX</a>
-      <a class="btn" href="mailto:corresponding@example.com">Contact</a>
+      <a class="btn" href="#challenges">Open Questions</a>
     </div>
   </div>
 </section>
@@ -123,350 +101,756 @@
   <div class="wrap">
     <div class="sec-head read">
       <p class="sec-kicker">Abstract</p>
-      <h2>The one-paragraph version</h2>
+      <h2>What this survey argues</h2>
     </div>
+
     <div class="read">
       <p class="dropcap">
-        Write the abstract here. A useful shape for a survey abstract is: (1) the problem area
-        and why it matters now; (2) what makes this survey different from existing ones;
-        (3) the organising principle — in what dimensions you classify the literature;
-        (4) what practitioners and researchers can take away. Three to five sentences is
-        usually enough on a web page, even if the PDF abstract is longer.
+        World models have become increasingly important for Physical AI by predicting how
+        environments evolve under actions. They support robot learning, simulation, planning, and
+        control, yet existing research remains fragmented across predictive representations, system
+        architectures, and evaluation protocols. We review their data foundations, modeling
+        approaches, and integration with learning and decision-making systems, covering robotics,
+        navigation, and autonomous driving.
       </p>
       <p>
-        The rest of this template demonstrates every component you are likely to need:
-        highlighted contribution cards, a research timeline, a taxonomy with figures,
-        benchmark tables, a BibTeX block with a copy button, and footer/licence text.
-        Delete what you do not use — the page gets faster and easier to maintain.
+        Through comparative analysis of experimental evidence, we examine when predictive
+        capabilities translate into practical benefits and where current evaluations remain
+        insufficient. The organising claim is deliberately narrow: <strong>a gain in prediction
+        fidelity does not establish a gain in decision utility</strong>, and the evidence that would
+        show otherwise is often missing from the reported experiment rather than merely inconclusive.
       </p>
     </div>
 
-    <!-- <!== 改这里 6/12: 三个（或四个）核心贡献卡片 --> 
-    <div class="grid g3" style="margin-top:38px">
+    <div class="note read">
+      <p><strong>Three cross-study findings guide the analysis.</strong></p>
+    </div>
+
+    <div class="grid g3" style="margin-top:24px">
       <article class="card reveal">
         <span class="card-num">01</span>
-        <h3>First organising axis</h3>
-        <p>One sentence on what this axis separates, e.g. the architectural paradigms you use to group methods.</p>
-        <div class="tag-row"><span class="tag">axis one</span><span class="tag alt">key idea</span></div>
+        <h3>Fidelity ≠ planning utility</h3>
+        <p>
+          Recursive fidelity and planning utility require different validation criteria.
+          In GNS, training with perturbed inputs improves recursive rollout accuracy while
+          worsening clean one-step accuracy. In ContactWorld, the representation with the lowest
+          relative prediction-error growth does not yield the highest planning success.
+        </p>
+        <div class="tag-row"><span class="tag">GNS</span><span class="tag alt">ContactWorld</span></div>
       </article>
       <article class="card reveal">
         <span class="card-num">02</span>
-        <h3>Second organising axis</h3>
-        <p>One sentence on the second axis, e.g. how methods are used in practice rather than how they are built.</p>
-        <div class="tag-row"><span class="tag">axis two</span><span class="tag alt">practice</span></div>
+        <h3>Evaluator ≠ learner</h3>
+        <p>
+          Evaluator agreement does not reliably predict policy-training utility. DexTouch-WM
+          reports higher evaluator correlation for WM-Mix, while WM-Robot yields higher reported
+          training means for two of three policy learners. IWS likewise finds learner-dependent
+          outcomes from synthetic demonstrations under a fixed data budget.
+        </p>
+        <div class="tag-row"><span class="tag">DexTouch-WM</span><span class="tag alt">IWS</span></div>
       </article>
       <article class="card reveal">
         <span class="card-num">03</span>
-        <h3>Third organising axis</h3>
-        <p>One sentence on the third axis, e.g. resources, benchmarks, or evaluation protocols.</p>
-        <div class="tag-row"><span class="tag">axis three</span><span class="tag alt">resources</span></div>
+        <h3>Correction ≠ one latency effect</h3>
+        <p>
+          Execution-time correction depends on temporal alignment and access to predictive
+          references. FutureRTC shows action-index choice depends on the prediction context's time
+          origin; TacPAC shows cached tactile expectations can improve correction while its
+          Bottle task remains unchanged at 40%.
+        </p>
+        <div class="tag-row"><span class="tag">FutureRTC</span><span class="tag alt">TacPAC</span></div>
       </article>
     </div>
 
     <figure class="fig-zoom reveal">
       <a href="assets/overview.svg" target="_blank" rel="noopener">
-        <img src="assets/overview.svg" alt="Survey organisation overview" width="1600" height="820" loading="lazy" decoding="async">
+        <img src="assets/overview.svg" alt="Organization of the four-part survey" width="1600" height="820" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 1.</b> How the survey is organised. Replace <code>assets/overview.svg</code> with your own figure of the same name.</figcaption>
+      <figcaption><b>Figure 1.</b> Organization of the four-part survey. Scenes and curves are conceptual illustrations, not reported experiments; prediction quality, decision utility, and execution reliability require distinct evaluation.</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ======================= Timeline ======================= -->
-<section id="timeline">
+<!-- ======================= Part I : Foundations ======================= -->
+<section id="foundations">
   <div class="wrap">
     <div class="sec-head read">
-      <p class="sec-kicker">Timeline</p>
-      <h2>How the field moved</h2>
+      <p class="sec-kicker">Part I — Foundations and Scope</p>
+      <h2>Prediction, action, and use</h2>
       <p>
-        Timelines date fast. Put the coverage cut-off date in the heading or the first line,
-        and say how you will maintain it — reviewers and readers both look for that.
+        A world model can be situated along three descriptive axes before its performance is
+        assessed. These describe an interface, not a ranking of model families or a newly
+        exhaustive taxonomy.
+      </p>
+    </div>
+
+    <div class="grid g3">
+      <article class="card reveal">
+        <span class="card-num">A1</span>
+        <h3>Prediction target</h3>
+        <p>Identifies the future quantity: pixels or video, latent state, objects and geometry, or physical and multimodal variables.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">A2</span>
+        <h3>Action query</h3>
+        <p>Asks whether the predictor is passive, responds to supplied candidate commands, generates a desired future, or jointly produces actions and futures.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">A3</span>
+        <h3>Prediction consumer</h3>
+        <p>Identifies where the forecast enters computation: simulation, policy learning, policy evaluation, planning and selection, or execution-time monitoring and correction.</p>
+      </article>
+    </div>
+
+    <div class="note warn read">
+      <p>
+        <strong>Working definitions.</strong> A <em>world model</em> is a learned predictor of
+        environmental evolution — future observations, latent states, object relations, physical
+        quantities, or action consequences. An <em>action-conditioned</em> model predicts
+        consequences under specified actions or interventions; <em>passive</em> models need not
+        expose executable-action queries. Prediction, policy, and control are computational roles,
+        not necessarily separate networks: action generation alone does not establish consequence
+        prediction.
+      </p>
+    </div>
+
+    <h3 style="margin-top:40px">Review protocol and evidence handling</h3>
+    <div class="grid g2">
+      <div class="card reveal">
+        <h3>Coverage Corpus — 758 families</h3>
+        <p>
+          Seven overlapping retrieval views cover foundations and control; visual and video models;
+          latent predictive representations; structured physics and multimodality; data,
+          simulation, and cross-embodiment; world models, VLA, and planning; and evaluation, safety,
+          and benchmarks. It serves as a discovery inventory, not an exhaustively screened sample.
+        </p>
+        <div class="tag-row"><span class="tag">discovery</span><span class="tag alt">7 views</span></div>
+      </div>
+      <div class="card reveal">
+        <h3>Core Evidence Set — 17 families</h3>
+        <p>
+          Purposively assembled for detailed comparison. Each has an identifiable use of learned
+          prediction and a locatable original experiment, intervention, or failure analysis relevant
+          to downstream utility. Includes negative controls: GNS's one-step/rollout trade-off,
+          ContactWorld's Valve and Dim regressions, and TacPAC's unchanged Bottle task.
+        </p>
+        <div class="tag-row"><span class="tag">mechanism-focused</span><span class="tag alt">negative controls</span></div>
+      </div>
+    </div>
+
+    <div class="read" style="margin-top:26px">
+      <p>
+        A crosswalk against the frozen Coverage Corpus identifies two strict matches (GNS and
+        ContactWorld), one resolved title variant (Drive-WM), and fourteen core families without a
+        direct match. This is a mechanism-focused selection, not a representative sample from which
+        the prevalence of benefits or failures can be estimated.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Part II : Data and Representations ======================= -->
+<section id="data">
+  <div class="wrap">
+    <div class="sec-head read">
+      <p class="sec-kicker">Part II — Data, Representations, and Predictive Models</p>
+      <h2>From observed motion to executed actions</h2>
+      <p>
+        Predicting observed motion and predicting a robot command's consequence require different
+        information. The comparison follows what is available for simulation, learning, and action
+        selection — not representation richness alone.
       </p>
     </div>
 
     <div class="grid g2" style="align-items:start">
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <span class="tl-when">2021 — early formulations</span>
-          <h4>Problem statements and first baselines</h4>
-          <p>What the earliest work established, and the assumptions later work had to drop.</p>
-        </div>
-        <div class="tl-item reveal">
-          <span class="tl-when">2022 — consolidation</span>
-          <h4>Unified pipelines appear</h4>
-          <ul>
-            <li>First end-to-end formulation</li>
-            <li>Standard benchmark introduced</li>
-            <li>Public implementations released</li>
-          </ul>
-        </div>
-        <div class="tl-item reveal">
-          <span class="tl-when">2023 — scaling</span>
-          <h4>Scale changes the questions</h4>
-          <p>What stopped being the bottleneck, and what became one instead.</p>
-        </div>
-        <div class="tl-item reveal">
-          <span class="tl-when">2024 — systems</span>
-          <h4>From method to deployed system</h4>
-          <p>Engineering constraints enter the literature: latency, cost, robustness, evaluation.</p>
-        </div>
-        <div class="tl-item reveal">
-          <span class="tl-when">2025 — open problems</span>
-          <h4>Revisiting the fundamentals</h4>
-          <p>Which early assumptions turned out to be wrong, and what replaced them.</p>
-        </div>
+      <div class="read">
+        <h3>2.1 Data: the intervention gap</h3>
+        <p>
+          Passive video, synchronized commands, physical-state labels, and recovery annotations
+          supply different supervision for action queries, policy updates, and interaction
+          outcomes. Synchronized corpora establish the command–observation link without erasing
+          control conventions: DROID broadens scenes on shared hardware, while Open X-Embodiment
+          pools bodies with coarsely aligned end-effector actions but retains frame and control
+          differences.
+        </p>
+        <p>
+          A shared storage format does not itself align executable command meanings. Action frame,
+          duration, control mode, observation frequency, and embodiment remain part of the
+          supervision — otherwise pooling more trajectories can change <em>which transition</em> a
+          training pair describes rather than simply broadening the situations covered.
+        </p>
       </div>
+      <div class="read">
+        <h3>2.2 Visual simulation as a feedback loop</h3>
+        <p>
+          Returning generated observations to an agent changes the consumer, even when the
+          predictor stays the same. In Interactive World Simulator, teleoperators supply commands
+          to collect synthetic demonstrations, whereas policy evaluation feeds generated
+          observations back to a policy.
+        </p>
+        <p>
+          The first interface creates training examples; the second lets the tested policy choose
+          its subsequent inputs to the simulator. Neither use can be reduced to the fidelity of an
+          independently sampled video.
+        </p>
+      </div>
+    </div>
 
-      <figure class="fig-zoom reveal" style="margin-top:0">
-        <a href="assets/timeline.svg" target="_blank" rel="noopener">
-          <img src="assets/timeline.svg" alt="Timeline of milestones" width="1800" height="760" loading="lazy" decoding="async">
-        </a>
-        <figcaption><b>Figure 2.</b> Timeline of representative milestones, through <b>DATE_TO_FILL</b>. Maintained continuously.</figcaption>
-      </figure>
+    <div class="read" style="margin-top:20px">
+      <h3>2.3 Latent and structured predictive representations</h3>
+      <p>
+        A representation matters through the distinctions its consumer needs: derivatives for an
+        integrator, attainable geometric change for inverse dynamics, or anticipated deformation
+        for contact control. The relevant path is state acquisition → predicted evolution → the
+        operation receiving that prediction.
+      </p>
+      <p>
+        A compact encoder is not yet a queryable transition. LeVJEPA aligns global/local views with
+        a shared encoder and block-causal attention, but adds no action-conditioned successor model;
+        matched-pretraining-FLOP probing improves Kinetics-400 while lowering
+        Something-Something-v2 accuracy relative to V-JEPA 2. With supplied physical state, graphs
+        organise the numerical update rather than discover objects: GNS predicts particle
+        accelerations and integrates them, and MeshGraphNets combines mesh and spatial-contact
+        connectivity.
+      </p>
+    </div>
+
+    <!-- TABLE 2 -->
+    <div class="table-wrap reveal">
+      <table>
+        <caption><b>Table 2.</b> Representative supervision and model interfaces (§2). Symbols encode an explicitly documented interface, not model accuracy or task success.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Study / resource</th>
+            <th scope="col">Data or predictive target</th>
+            <th scope="col">A</th>
+            <th scope="col">G</th>
+            <th scope="col">S</th>
+            <th scope="col">Downstream use / test</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" colspan="6" style="background:var(--bg-tint)">Data and environments (not learned predictive queries)</th></tr>
+          <tr><th scope="row">DROID</th><td>Robot demonstrations</td><td>—</td><td>—</td><td>—</td><td>Policy transfer</td></tr>
+          <tr><th scope="row">OXE</th><td>Cross-body commands</td><td>—</td><td>—</td><td>—</td><td>Co-training</td></tr>
+          <tr><th scope="row">PhysInOne</th><td>Physics-labeled video</td><td>—</td><td>—</td><td>—</td><td>FVD / PMF</td></tr>
+          <tr><th scope="row">REBOOT</th><td>Failure / correction phases</td><td>—</td><td>—</td><td>—</td><td>Recovery data</td></tr>
+          <tr><th scope="row">GRUtopia</th><td>Control API / scenes</td><td>—</td><td>—</td><td>—</td><td>Agent task tests</td></tr>
+          <tr><th scope="row">LIBERO / CALVIN</th><td>Task benchmark</td><td>—</td><td>—</td><td>—</td><td>Task / chain success</td></tr>
+
+          <tr><th scope="row" colspan="6" style="background:var(--bg-tint)">Visual and latent prediction</th></tr>
+          <tr><th scope="row">V-JEPA 2</th><td>Robot-conditioned latent</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-n">—</td><td>Planning / probes</td></tr>
+          <tr><th scope="row">UniPi</th><td>Desired future video</td><td class="mark-n">—</td><td class="mark-y">✓</td><td class="mark-n">—</td><td>Inverse dynamics</td></tr>
+          <tr><th scope="row">AVID</th><td>Action-conditioned video</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-n">—</td><td>Frame / AER</td></tr>
+          <tr><th scope="row">UniSim</th><td>Interactive video</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-n">—</td><td>Video / policy</td></tr>
+          <tr><th scope="row">IWS</th><td>Latent / action histories</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-n">—</td><td>Evaluation / training</td></tr>
+          <tr><th scope="row">DreamDojo</th><td>Robot-adapted video</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-n">—</td><td>Adaptation tests</td></tr>
+          <tr><th scope="row">OSCAR</th><td>Projected skeleton video</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-n">—</td><td>Evaluation agreement</td></tr>
+          <tr><th scope="row">Dreamer</th><td>Latent states / rewards</td><td class="mark-n">—</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>Policy return</td></tr>
+
+          <tr><th scope="row" colspan="6" style="background:var(--bg-tint)">Structured / geometry / contact prediction</th></tr>
+          <tr><th scope="row">C-SWM</th><td>Object successor</td><td class="mark-n">—</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>Successor ranking</td></tr>
+          <tr><th scope="row">SlotFormer</th><td>Post-intervention slots</td><td class="mark-n">—</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>PHYRE AUCCESS</td></tr>
+          <tr><th scope="row">GNS</th><td>Particle acceleration</td><td class="mark-n">—</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>Rollout error</td></tr>
+          <tr><th scope="row">MeshGraphNets</th><td>Mesh/node dynamics</td><td class="mark-n">—</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>Rollout error</td></tr>
+          <tr><th scope="row">TesserAct</th><td>Future RGB-D / 3D</td><td class="mark-y">✓</td><td class="mark-y">✓</td><td class="mark-y">✓</td><td>RLBench 7+/20</td></tr>
+          <tr><th scope="row">OmniVTA</th><td>Tactile deformation</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>Action refinement</td></tr>
+          <tr><th scope="row">ContactWorld</th><td>Contact-state latent</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>CEM planning</td></tr>
+          <tr><th scope="row">DexTouch-WM</th><td>Vision/touch dynamics</td><td class="mark-y">✓</td><td class="mark-n">—</td><td class="mark-y">✓</td><td>Evaluation / training</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      <b>Legend.</b> A = queries consequences of supplied robot actions; G = task/goal-to-future
+      generation; S = explicit object/geometry/particle/contact structure. ✓ = documented;
+      — = the cited setup does not offer that query (not a failed experiment). For OSCAR the
+      supplied condition is projected skeleton motion, not executable robot commands. For
+      GNS/MeshGraphNets a supplied physical state is advanced without new candidate-command queries.
+    </p>
+
+    <div class="read" style="margin-top:26px">
+      <h3>2.4 Generalization across scenes and embodiments</h3>
+      <p>
+        Scene, task, sensor, and body changes stress different interfaces. Three bridges can
+        coexist — transferring experience, adapting executable actions, and preserving selected
+        outputs under observation changes — but their evidence concerns different changes and
+        consumers rather than a single generalization score.
+      </p>
+      <p>
+        Sim-to-real WAM adapts Cosmos Policy with approximately 800 simulated demonstrations per
+        task and visual domain randomization, reporting 35% mean zero-shot success across four
+        Franka manipulation tasks, without real policy demonstrations or real-data finetuning. This
+        measures the complete transfer recipe — including video pretraining, generated
+        demonstrations, and domain randomization — rather than an isolated contribution of
+        world-model prediction.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ======================= Taxonomy ======================= -->
-<section id="taxonomy">
+<!-- ======================= Part III : Learning and Simulation ======================= -->
+<section id="learning">
   <div class="wrap">
     <div class="sec-head read">
-      <p class="sec-kicker">Taxonomy</p>
-      <h2>How the methods relate</h2>
-      <p>State the classification rule explicitly. A reader should be able to place a new paper into exactly one branch without asking you.</p>
+      <p class="sec-kicker">Part III — World Models in Learning, Simulation, and Decision Making</p>
+      <h2>Where the prediction actually enters</h2>
+      <p>
+        Predictions can change command selection, policy parameters, action decoding, or correction
+        after new observations. A simulator supplies interactions; an evaluator estimates behavior
+        quality. We compare these operations rather than treating their benefits as interchangeable.
+      </p>
     </div>
 
-    <figure class="fig-zoom reveal">
-      <a href="assets/taxonomy.svg" target="_blank" rel="noopener">
-        <img src="assets/taxonomy.svg" alt="Method taxonomy" width="1600" height="820" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Figure 3.</b> Taxonomy of approaches, grouped by mechanism rather than by application domain.</figcaption>
-    </figure>
-
-    <div class="grid g3">
-      <article class="card reveal">
-        <h3>Paradigm A — Modular pipeline</h3>
-        <p>Decomposed into stages that can be trained and replaced independently. Easy to analyse, harder to tune jointly.</p>
-        <div class="tag-row"><span class="tag">modular</span><span class="tag">interpretable</span></div>
-      </article>
-      <article class="card reveal">
-        <h3>Paradigm B — Shared backbone</h3>
-        <p>One network, several heads. Shares representation across tasks at the cost of coupling.</p>
-        <div class="tag-row"><span class="tag">shared</span><span class="tag">efficient</span></div>
-      </article>
-      <article class="card reveal">
-        <h3>Paradigm C — Expert fusion</h3>
-        <p>Specialised modules combined by routing or attention. Scales capacity, complicates training and serving.</p>
-        <div class="tag-row"><span class="tag alt">routing</span><span class="tag alt">capacity</span></div>
-      </article>
-      <article class="card reveal">
-        <h3>Paradigm D — Latent representation</h3>
-        <p>Compress the state instead of materialising a full high-dimensional output. Cheaper inference, harder to inspect.</p>
-        <div class="tag-row"><span class="tag alt">latent</span><span class="tag">compact</span></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= Methods ======================= -->
-<section id="methods">
-  <div class="wrap">
-    <div class="sec-head read">
-      <p class="sec-kicker">Method families</p>
-      <h2>Representative approaches in detail</h2>
-      <p>One figure and one paragraph per family is usually the right density. More than that and readers stop scrolling.</p>
+    <div class="grid g2" style="align-items:start">
+      <div class="read">
+        <h3>3.1 Planning with predicted consequences</h3>
+        <p>
+          Consequence planning must both propose a useful motion and recognise its value before
+          committing. PETS propagates sampled trajectories through probabilistic dynamics ensembles
+          and uses CEM to search for high-reward sequences; PlaNet infers a latent belief and runs
+          CEM on predicted latent states and rewards without rendering images for scoring; TD-MPC2
+          guides sample-based latent search with a learned policy prior and a terminal value.
+        </p>
+        <p>
+          Ensemble uncertainty, a visual belief, and policy/value guidance change different parts of
+          the decision — rather than merely offering alternative forecast formats.
+        </p>
+      </div>
+      <div class="read">
+        <h3>3.2 Driving and navigation</h3>
+        <p>
+          Driving and navigation distinguish three interfaces: searching supplied candidates,
+          conditioning action generation on predicted context, and refreshing decisions from
+          feedback. In the first, prediction changes a ranking; in the second, it supplies features
+          or training targets; in the third, the next computation is anchored either to generated
+          history or to the executed world.
+        </p>
+        <p>
+          These distinctions determine which ablation explains a reported gain — not merely which
+          system reports the higher score.
+        </p>
+      </div>
     </div>
 
-    <div class="grid g2">
-      <figure class="fig-zoom reveal" style="margin-top:0">
-        <a href="assets/fig-modular.svg" target="_blank" rel="noopener">
-          <img src="assets/fig-modular.svg" alt="Modular pipeline diagram" width="1400" height="700" loading="lazy" decoding="async">
-        </a>
-        <figcaption><b>Figure 4.</b> Modular pipeline: each stage can be validated on its own.</figcaption>
-      </figure>
-      <figure class="fig-zoom reveal" style="margin-top:0">
-        <a href="assets/fig-backbone.svg" target="_blank" rel="noopener">
-          <img src="assets/fig-backbone.svg" alt="Shared backbone diagram" width="1400" height="700" loading="lazy" decoding="async">
-        </a>
-        <figcaption><b>Figure 5.</b> Shared backbone: representation is the shared resource.</figcaption>
-      </figure>
-      <figure class="fig-zoom reveal" style="margin-top:0">
-        <a href="assets/fig-fusion.svg" target="_blank" rel="noopener">
-          <img src="assets/fig-fusion.svg" alt="Expert fusion diagram" width="1400" height="700" loading="lazy" decoding="async">
-        </a>
-        <figcaption><b>Figure 6.</b> Expert fusion: capacity scales with the number of experts.</figcaption>
-      </figure>
-      <figure class="fig-zoom reveal" style="margin-top:0">
-        <a href="assets/fig-latent.svg" target="_blank" rel="noopener">
-          <img src="assets/fig-latent.svg" alt="Latent representation diagram" width="1400" height="700" loading="lazy" decoding="async">
-        </a>
-        <figcaption><b>Figure 7.</b> Latent representation: prediction happens in a compact space.</figcaption>
-      </figure>
+    <!-- TABLE 3 -->
+    <div class="table-wrap reveal">
+      <table>
+        <caption><b>Table 3.</b> Where predictions enter decisions (§3): interface roles and selected within-study results. These are not a cross-benchmark leaderboard.</caption>
+        <thead>
+          <tr>
+            <th scope="col">System</th>
+            <th scope="col">Role</th>
+            <th scope="col">Protocol / metric</th>
+            <th scope="col">Result / trial scope</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" colspan="4" style="background:var(--bg-tint)">Driving</th></tr>
+          <tr><th scope="row">Drive-WM</th><td>Rank</td><td>nuScenes L2 / coll.</td><td class="num">1.02 → 0.80 m; .93 → .26%</td></tr>
+          <tr><th scope="row">OccWorld</th><td>Joint</td><td>Forecast horizon</td><td class="num">150 scenes; 13 s</td></tr>
+          <tr><th scope="row">Drive-OccWorld</th><td>Rank</td><td>nuScenes</td><td>n/c</td></tr>
+          <tr><th scope="row">DriveVLA-W0</th><td>Train</td><td>Scale ablation</td><td>n/c</td></tr>
+          <tr><th scope="row">DriveDreamer-Policy</th><td>Context</td><td>NAVSIM v1 PDMS</td><td class="num">88.0 → 89.2</td></tr>
+          <tr><th scope="row">DriveWAM</th><td>Context</td><td>4-s ADE / FDE</td><td class="num">0.83 / 2.47; N = 1 000</td></tr>
+          <tr><th scope="row">DAWN</th><td>Refine</td><td>NAVSIM v1 PDMS</td><td class="num">82.8 / 85.2 / 87.9</td></tr>
+
+          <tr><th scope="row" colspan="4" style="background:var(--bg-tint)">Navigation</th></tr>
+          <tr><th scope="row">NavForesee</th><td>Context</td><td>R2R-CE / RxR-CE</td><td>mixed</td></tr>
+          <tr><th scope="row">NWM</th><td>Rank</td><td>RECON offline</td><td class="num">16 / 32 proposals</td></tr>
+          <tr><th scope="row">DreamerNav</th><td>Train</td><td>Warehouse / Go2</td><td>1 sim.; 2 preliminary</td></tr>
+          <tr><th scope="row">NavThinker</th><td>Context</td><td>Social-HM3D / Go2</td><td>Go2 qualitative</td></tr>
+          <tr><th scope="row">NavWAM</th><td>Re-query</td><td>Physical success</td><td class="num">19/24 / 14/24 / 4/24</td></tr>
+
+          <tr><th scope="row" colspan="4" style="background:var(--bg-tint)">World–action models</th></tr>
+          <tr><th scope="row">UniPi</th><td>Decode</td><td>Open-loop execution</td><td>n/c</td></tr>
+          <tr><th scope="row">Fast-WAM</th><td>Train / joint</td><td>RoboTwin / LIBERO</td><td class="num">91.8/90.6/91.3%; 97.6/98.5/98.0%</td></tr>
+          <tr><th scope="row">V-JEPA Policy</th><td>Context</td><td>LIBERO-Plus</td><td class="num">79.25/68.81%; 1 seed</td></tr>
+          <tr><th scope="row">LaRA-VLA T5</th><td>Joint</td><td>SimplerEnv</td><td class="num">64.6/63.5/68.8%</td></tr>
+          <tr><th scope="row">LaRA-VLA T9</th><td>Train / infer</td><td>SimplerEnv</td><td class="num">55.2/61.4/68.7%</td></tr>
+          <tr><th scope="row">DreamZero</th><td>Joint</td><td>Physical tasks</td><td>n/c</td></tr>
+          <tr><th scope="row">JOPAT</th><td>Joint</td><td>LIBERO-Long</td><td class="num">77.4/26.2/96.4%</td></tr>
+          <tr><th scope="row">Cosmos Policy</th><td>Joint / rank</td><td>Physical tasks</td><td>n/c</td></tr>
+          <tr><th scope="row">Motus</th><td>Joint</td><td>Robot adaptation</td><td>n/c</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      <b>Role.</b> Rank = alternative scoring/search; Joint = world–action generation;
+      Train = prediction-based training; Context = predictive policy input; Refine = pre-issue
+      adjustment; Re-query = new observation after a chunk; Decode = future-to-action inverse
+      dynamics. <b>Numbers:</b> n/c = no compact numeric comparison tabulated here (not "no
+      result"). Fast-WAM and LaRA triples are separate source-specific ablations; DAWN =
+      no predictor / predictor / refinement; NavWAM = NavWAM / OmniVLA / NWM.
+    </p>
+
+    <div class="grid g2" style="margin-top:34px;align-items:start">
+      <div class="read">
+        <h3>3.3 Policy learning with imagined experience</h3>
+        <p>
+          What the optimizer consumes determines how imagination changes learning. Original Dreamer
+          differentiates imagined returns through fixed latent dynamics; MBPO supplies short
+          predicted state/reward transitions from real replay to SAC updates; DreamerV3 instead uses
+          normalized REINFORCE. PWM retains first-order return gradients and trains per-task actors
+          from a shared multi-task model.
+        </p>
+        <p>
+          MBPO's Hopper ablations retain much of the benefit with one-step branches, degrade with
+          long branches, and outperform extra no-model SAC updates. Transition accumulation, return
+          truncation, and state information are different weaknesses — these controls establish
+          neither a common optimal horizon nor equal total compute.
+        </p>
+      </div>
+      <div class="read">
+        <h3>3.4 Memory, failure detection, and recovery</h3>
+        <p>
+          Memory preserves context; recovery changes what happens after a failure. A
+          history-conditioned forecast can support simulation, and a history-conditioned actor can
+          maintain task progress, without either constructing a response to an impending failure.
+        </p>
+        <p>
+          Mem-World retrieves observations from action-conditioned, wrist-view-centred 4D memory for
+          simulation; in its separate policy-evaluation experiment, imagined and real policy success
+          correlate at Pearson r = 0.97. This is evaluator agreement, not an online recovery
+          endpoint.
+        </p>
+      </div>
+    </div>
+
+    <div class="read" style="margin-top:20px">
+      <h3>3.5 Visual plans and joint world–action models</h3>
+      <p>
+        Predictive supervision and runtime future information answer different questions. UniPi
+        generates task-conditioned video, then grounds frame transitions through an independently
+        trained inverse-dynamics decoder; its reported experiments execute open-loop. Fast-WAM
+        makes the stage distinction explicit: its base action tokens read features of the current
+        observation, not future-video tokens, and removing video co-training leaves
+        architecture/inference unchanged while costing 8.0 RoboTwin and 4.1 LIBERO points.
+      </p>
+      <p>
+        Executing only decoded actions does not remove future tokens from sampling. Information
+        available during denoising and outputs retained after denoising are therefore distinct
+        descriptions of the same system.
+      </p>
     </div>
 
     <div class="note read">
-      <p><strong>Writing tip.</strong> Each method paragraph reads best as: what problem it targets → the mechanism in one sentence → what it costs (compute, data, latency) → the evidence. Four sentences, no more.</p>
+      <p>
+        <strong>Boundary case — reasoner-assisted revision.</strong> Reasoner-assisted revision
+        changes a policy proposal by interpreting observations and task constraints; it need not
+        evaluate a predicted trajectory. Astra corrects proposals, reporting 48% hybrid versus 26%
+        direct-Astra success on ten selected RoboDojo tasks. The decision interface is complementary
+        to prediction, not a substitute for it.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ======================= Systems ======================= -->
-<section id="systems">
-  <div class="wrap">
-    <div class="sec-head read">
-      <p class="sec-kicker">Systems</p>
-      <h2>From method to working system</h2>
-      <p>If your field has a deployment gap, this is the section reviewers remember. Be concrete about constraints.</p>
-    </div>
-
-    <figure class="fig-zoom reveal">
-      <a href="assets/fig-systems.svg" target="_blank" rel="noopener">
-        <img src="assets/fig-systems.svg" alt="System integration diagram" width="1400" height="700" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Figure 8.</b> System integration: where research prototypes usually break.</figcaption>
-    </figure>
-
-    <div class="grid g4">
-      <article class="card reveal">
-        <h3>Latency budget</h3>
-        <p class="read">State the operating point in milliseconds, not adjectives.</p>
-      </article>
-      <article class="card reveal">
-        <h3>Cost per episode</h3>
-        <p class="read">Hardware and cloud spend is a real research constraint.</p>
-      </article>
-      <article class="card reveal">
-        <h3>Robustness</h3>
-        <p class="read">What happens out of distribution, and how it is detected.</p>
-      </article>
-      <article class="card reveal">
-        <h3>Monitoring</h3>
-        <p class="read">How failures are found after deployment, not before.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= Evaluation ======================= -->
+<!-- ======================= Part IV : Evaluation ======================= -->
 <section id="evaluation">
   <div class="wrap">
     <div class="sec-head read">
-      <p class="sec-kicker">Evaluation</p>
-      <h2>Measuring the right thing</h2>
-      <p>Surveys earn citations when they tell readers which metric is actually informative — and which one is gamed.</p>
+      <p class="sec-kicker">Part IV — Evaluation, Safety, and Reliability</p>
+      <h2>What a result actually establishes</h2>
+      <p>
+        Evaluation requires a separate map of what a result establishes. We distinguish six evidence
+        dimensions, adapted from evaluation questions across prior world-model and embodied-AI
+        surveys. These are claim-dependent checks, not six mandatory sequential gates or a single
+        aggregate score.
+      </p>
+    </div>
+
+    <div class="grid g3">
+      <article class="card reveal">
+        <h3>L1 — Perceptual fidelity</h3>
+        <p>Tests visual coherence of the predicted future.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L2 — State and physical fidelity</h3>
+        <p>Tests task-relevant dynamics, geometry, or contact state.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L3 — Action realization</h3>
+        <p>Checks whether changing a supplied command produces the corresponding robot or agent motion.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L4 — Interaction grounding</h3>
+        <p>Checks whether the realized motion produces the corresponding environmental response, including object displacement or contact.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L5 — Planning and policy utility</h3>
+        <p>Measures effects on action choice or learning under a defined consumer and protocol.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L6 — Operational reliability and safety</h3>
+        <p>Measures failures, intervention timing, recovery, and constraints during execution.</p>
+      </article>
+    </div>
+
+    <div class="note read" style="margin-top:28px">
+      <p>
+        <strong>The chain to watch:</strong>
+        commanded action → realized motion → environment response → new observation.
+        An L1 or L2 gain does not establish an L5 benefit, and a policy-evaluation correlation is
+        not a newly trained policy's success rate.
+      </p>
     </div>
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-eval.svg" target="_blank" rel="noopener">
-        <img src="assets/fig-eval.svg" alt="Evaluation protocol diagram" width="1400" height="700" loading="lazy" decoding="async">
+        <img src="assets/fig-eval.svg" alt="Design coordinates and claim-matched evidence levels" width="1400" height="700" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 9.</b> A minimal evaluation protocol: benchmarks, metrics, ablations, reporting.</figcaption>
+      <figcaption><b>Figure 4.</b> Design coordinates and claim-matched evidence for Physical-AI world models. The three design axes locate a predictor and its consumer; evidence dimensions L1–L6 identify distinct checks on the claimed use. The arrows highlight the action-to-environment interface, not a requirement to pass every level in order.</figcaption>
     </figure>
 
-    <div class="note warn read">
-      <p><strong>Watch out.</strong> Call out metrics that correlate poorly with downstream utility. This is one of the most useful things a survey can do, and it is rarely done.</p>
+    <!-- TABLE 5 -->
+    <div class="table-wrap reveal">
+      <table>
+        <caption><b>Table 5.</b> What is evaluated (§4.1). The Pol.? marker identifies a policy-evaluation protocol, not whether the model passed a benchmark.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Study</th>
+            <th scope="col">Pol.?</th>
+            <th scope="col">Endpoint</th>
+            <th scope="col">Evaluation N / unit</th>
+            <th scope="col">Key result / limit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" colspan="5" style="background:var(--bg-tint)">Prediction or physical-event tests</th></tr>
+          <tr><th scope="row">AVID</th><td class="mark-n">—</td><td>Frame / AER</td><td class="num">1 024 trajectories × 16 steps</td><td>Regressor proxy</td></tr>
+          <tr><th scope="row">GNS</th><td class="mark-n">—</td><td>1-step / rollout</td><td class="num">GOOP; repeats NR</td><td>No planner</td></tr>
+          <tr><th scope="row">IntPhys 2</th><td class="mark-n">—</td><td>Event judgment</td><td class="num">1 012 / 344 videos</td><td>Paired/single</td></tr>
+          <tr><th scope="row">Physion</th><td class="mark-n">—</td><td>Contact event</td><td class="num">8 × 150 stimuli</td><td>No motor execution</td></tr>
+
+          <tr><th scope="row" colspan="5" style="background:var(--bg-tint)">Policy evaluation or ranking</th></tr>
+          <tr><th scope="row">WorldArena</th><td class="mark-y">✓</td><td>VLM judgment</td><td class="num">5 × N; N NR</td><td>Proxy optimism</td></tr>
+          <tr><th scope="row">WorldEval</th><td class="mark-y">✓</td><td>Video verifier</td><td class="num">5 tasks; 40 rollouts/task</td><td>Cell N NR</td></tr>
+          <tr><th scope="row">WorldGym</th><td class="mark-y">✓</td><td>Rubric</td><td class="num">3 policies; 17 tasks; 10 starts</td><td>Starts reused</td></tr>
+          <tr><th scope="row">IWS</th><td class="mark-y">✓</td><td>Score agreement</td><td class="num">4 × 20 starts</td><td>Mixture separate</td></tr>
+          <tr><th scope="row">DexTouch-WM</th><td class="mark-y">✓</td><td>Pearson r</td><td class="num">4 tasks; 3 policies/task</td><td class="num">Mix/Robot .844/.646</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="table-note">
+      <b>Legend.</b> Pol.? ✓ = evaluates policy outcomes/ranking; — = prediction/event-only test
+      (not incorrect). NR = not reported. IWS initial states match the simulator training
+      distribution; its mixture training is a separate experiment.
+    </p>
+
+    <div class="grid g2" style="margin-top:34px;align-items:start">
+      <div class="read">
+        <h3>4.2 Uncertainty, constraints, and runtime guardrails</h3>
+        <p>
+          Safety mechanisms intervene at different operations: exploration, policy optimisation,
+          command acceptance, or alarm generation. Classical certificates establish a response under
+          explicit assumptions — confidence-bounded Lyapunov learning restricts exploration to an
+          invariant region; predictive safety filtering tests a backup trajectory; a
+          control-barrier-function QP constrains its instantaneous derivative.
+        </p>
+        <p>
+          Their guarantees require a valid state/uncertainty model and, respectively, an initially
+          stabilising policy, a feasible terminal backup, or an admissible safe input.
+          <strong>A visual forecast supplies none of these physical interfaces automatically.</strong>
+        </p>
+      </div>
+      <div class="read">
+        <h3>4.3 Operational reliability and attribution</h3>
+        <p>
+          A runtime response requires information to arrive before the relevant action becomes
+          committed. FutureRTC's Table 3 isolates action-index alignment while holding an
+          execution-time oracle context fixed: using the first generated action yields 96.6%
+          success, whereas starting at index k = 20 after the same delay yields 0.9%.
+        </p>
+        <p>
+          This is an oracle-context diagnostic, not evidence that the model can access that future
+          observation when it generates the action. Intervention can itself cause failure:
+          VLA-FixBench's automatic judgers achieve 0–25% completion versus 30% policy-only and 65%
+          human intervention on two physical Franka tasks.
+        </p>
+      </div>
+    </div>
+
+    <!-- TABLE 6 -->
+    <div class="table-wrap reveal">
+      <table>
+        <caption><b>Table 6.</b> Safety claims, alarms and executed interventions (§4.2–4.3). A formal guarantee and an empirical improvement are different endpoints.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Study</th>
+            <th scope="col">Thm.?</th>
+            <th scope="col">Mechanism</th>
+            <th scope="col">Endpoint / condition</th>
+            <th scope="col">Scope / N</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" colspan="5" style="background:var(--bg-tint)">Formal or conditional guarantees</th></tr>
+          <tr><th scope="row">Berkenkamp</th><td class="mark-y">✓</td><td>Confidence + Lyapunov</td><td>1 × invariance</td><td>Safe initial policy</td></tr>
+          <tr><th scope="row">Safety filter</th><td class="mark-y">✓</td><td>Backup feasibility</td><td>Constraint feasible</td><td>Terminal / tightening</td></tr>
+          <tr><th scope="row">CBF-QP</th><td class="mark-y">✓</td><td>Barrier / QP</td><td>Set invariant</td><td>Control-affine</td></tr>
+          <tr><th scope="row">SMBPO</th><td class="mark-y">✓</td><td>Set-valued dynamics</td><td>Bounded Bellman</td><td>Emp. update &lt; proof</td></tr>
+
+          <tr><th scope="row" colspan="5" style="background:var(--bg-tint)">Reported interventions and measurements</th></tr>
+          <tr><th scope="row">SafeDreamer</th><td class="mark-n">—</td><td>Reward / cost WM</td><td>Return / violation</td><td class="num">5 runs; 10 × 1 000</td></tr>
+          <tr><th scope="row">Foresight</th><td class="mark-n">—</td><td>Risk / alarm</td><td>AUC / BalAcc</td><td class="num">404 = 360 + 44</td></tr>
+          <tr><th scope="row">DreamAvoid</th><td class="mark-n">—</td><td>Ranked action chunk</td><td>Physical failure</td><td class="num">4 × 40/arm</td></tr>
+          <tr><th scope="row">Recovery RL</th><td class="mark-n">—</td><td>Risk-critic switch</td><td>Success / violation</td><td>Model-free physical</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      <b>Legend.</b> Thm.? ✓ = formal statement under cited assumptions; — = no guarantee asserted
+      by this table, not an unsafe method. SMBPO's Bellman theorem does not certify its
+      ensemble-averaged update. Foresight's 360 and 44 episodes are heterogeneous; an alarm is not
+      a correction. DreamAvoid does not observe rejected outcomes.
+    </p>
   </div>
 </section>
 
-<!-- ======================= Resources ======================= -->
-<section id="resources">
+<!-- ======================= Synthesis ======================= -->
+<section id="synthesis">
   <div class="wrap">
     <div class="sec-head read">
-      <p class="sec-kicker">Resources</p>
-      <h2>Datasets and benchmarks</h2>
+      <p class="sec-kicker">Synthesis</p>
+      <h2>Three consumer-dependent validation choices</h2>
       <p>
-        These two tables are real HTML rather than images, so readers can select and search them,
-        screen readers can parse them, and they stay sharp on any display. Fill in your own rows.
+        The evidence supports narrower, consumer-specific claims rather than a universal ranking.
+        Table 7 separates observations by consumer (A) from unresolved cross-cutting explanations
+        and proposed tests (B).
       </p>
     </div>
 
-    <!-- <!== 改这里 7/12: 数据集表。加行 = 复制一个 <tr> --> 
+    <div class="read">
+      <p>
+        GNS's recursive robustness cannot replace ContactWorld's goal-scored planning endpoint;
+        DexTouch-WM's evaluator ranking does not select a training-data generator independently of
+        the learner, as IWS's mixtures also illustrate; and FutureRTC's action-index alignment
+        differs from TacPAC's access to a predicted tactile reference.
+      </p>
+      <p>
+        Existing surveys establish the broader evaluation and attribution principles. The
+        contribution here is to connect specific controls and adverse outcomes to these distinct
+        choices — and to be explicit about which follow-up tests have <em>not</em> been run.
+      </p>
+    </div>
+
+    <!-- TABLE 7 -->
     <div class="table-wrap reveal">
       <table>
-        <caption><b>Table 1.</b> Core attributes of representative resources.</caption>
+        <caption><b>Table 7.</b> Five predictive consumers (A) and three cross-cutting tests (B). Only Panel A contains reported empirical contrasts; Panel B is unexecuted.</caption>
         <thead>
           <tr>
-            <th scope="col">Resource</th>
-            <th scope="col">Year</th>
-            <th scope="col">Scale</th>
-            <th scope="col">Modalities</th>
-            <th scope="col">Supervision</th>
-            <th scope="col">Licence</th>
+            <th scope="col">Use</th>
+            <th scope="col">Source</th>
+            <th scope="col">Original contrast</th>
+            <th scope="col">Boundary</th>
           </tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Resource-Alpha</th><td class="num">2022</td><td class="num">1.2M</td><td>RGB, depth</td><td>Dense labels</td><td>CC BY 4.0</td></tr>
-          <tr><th scope="row">Resource-Beta</th><td class="num">2023</td><td class="num">480K</td><td>RGB, audio</td><td>Weak labels</td><td>MIT</td></tr>
-          <tr><th scope="row">Resource-Gamma</th><td class="num">2024</td><td class="num">7.9M</td><td>Multi-view</td><td>Self-supervised</td><td>Research only</td></tr>
-          <tr><th scope="row">Resource-Delta</th><td class="num">2025</td><td class="num">2.1M</td><td>RGB, text</td><td>Instruction pairs</td><td>Apache 2.0</td></tr>
+          <tr><th scope="row" colspan="4" style="background:var(--bg-tint)">A. Reported (✓) consumer evidence</th></tr>
+          <tr><th scope="row">Simulation</th><td>GNS</td><td>1-step &lt; rollout</td><td>No planner</td></tr>
+          <tr><th scope="row">Learning</th><td>Fast-WAM; IWS</td><td class="num">8.0 / 4.1 pp; mixture</td><td>Learner / recipe</td></tr>
+          <tr><th scope="row">Evaluation</th><td>DexTouch</td><td class="num">r: .844/.646</td><td>3 policies/task</td></tr>
+          <tr><th scope="row">Planning</th><td>Yuan</td><td class="num">68.9/79.2% (48 → 16)</td><td>Oracle retrospective</td></tr>
+          <tr><th scope="row">Correction</th><td>TacPAC</td><td class="num">47/64%; Bottle 40/40%</td><td>Cache access</td></tr>
+
+          <tr><th scope="row" colspan="4" style="background:var(--bg-tint)">B. Proposed (— not executed) diagnostic controls</th></tr>
+          <tr><th scope="row">Case A</th><td>Pool / score / rejection</td><td>Yuan; DreamAvoid; GeoBoN</td><td>Fixed starts / scores</td></tr>
+          <tr><th scope="row">Case B</th><td>Dynamics / goal metric</td><td>ContactWorld 32.3/39.5/38.6/36.5%</td><td>Common goal metric</td></tr>
+          <tr><th scope="row">Case C</th><td>Context / index / feedback</td><td>FutureRTC; TacPAC</td><td>Fixed prefix / timing</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="table-note">Replace these rows. Keep the <code>num</code> class on numeric cells — it enables tabular figures so columns align.</p>
+    <p class="table-note">
+      <b>Status.</b> ✓ = source-observed contrast, not a claim of positive effect;
+      — = proposed control not executed. The three cases do not map one-to-one to the five consumers.
+    </p>
 
-    <!-- <!== 改这里 8/12: 基准表。✓ / – / ✗ 用下面对应的 class --> 
-    <div class="table-wrap reveal">
-      <table>
-        <caption><b>Table 2.</b> Benchmark coverage. <span class="mark-y">✓</span> strong, <span class="mark-p">–</span> partial, <span class="mark-n">✗</span> limited.</caption>
-        <thead>
-          <tr>
-            <th scope="col">Benchmark</th>
-            <th scope="col">Task type</th>
-            <th scope="col">Primary metric</th>
-            <th scope="col">Coverage A</th>
-            <th scope="col">Coverage B</th>
-            <th scope="col">Coverage C</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Bench-One</th><td>Perception</td><td>Accuracy</td><td class="mark-y">✓</td><td class="mark-p">–</td><td class="mark-n">✗</td></tr>
-          <tr><th scope="row">Bench-Two</th><td>Control</td><td>Success rate</td><td class="mark-p">–</td><td class="mark-y">✓</td><td class="mark-n">✗</td></tr>
-          <tr><th scope="row">Bench-Three</th><td>Long horizon</td><td>Task completion</td><td class="mark-n">✗</td><td class="mark-p">–</td><td class="mark-y">✓</td></tr>
-        </tbody>
-      </table>
+    <div class="read" style="margin-top:30px">
+      <h3>What the unexecuted tests would settle</h3>
+      <p>
+        <strong>Case A — candidate availability, prediction, and selection.</strong> An oracle branch
+        can show that an alternative in the supplied pool would have succeeded; trajectory-error
+        recovery can still fail to improve the executed policy. Neither result measures outcomes for
+        candidates that were never generated or selected.
+      </p>
+      <p>
+        <strong>Case B — representation versus goal geometry.</strong> A discriminating follow-up
+        would freeze a compatible encoder, target and goal metric; match sensing, capacity, data and
+        search; and vary predictive contact input separately from scoring access. Predictor-only
+        gains would weaken a scoring-only account.
+      </p>
+      <p>
+        <strong>Case C — prediction, feedback, and executable action windows.</strong> A
+        common-implementation test could fix policy, training, compute allowance, acquisition
+        schedule and committed prefix, then independently vary fixed-context refinement, fresh
+        observations and delay — distinguishing an information limit, inaccurate anticipation, or a
+        closed action window.
+      </p>
     </div>
-
-    <ul class="link-list read reveal" style="margin-top:26px">
-      <li><span><a href="#">Curated paper list (GitHub)</a><br><span class="meta">Updated alongside this page; PRs welcome.</span></span></li>
-      <li><span><a href="#">Dataset download mirror</a><br><span class="meta">Use a mirror for large files — see the deployment notes.</span></span></li>
-      <li><span><a href="#">Code and reproduction scripts</a><br><span class="meta">Environment, seeds, and expected numbers.</span></span></li>
-    </ul>
   </div>
 </section>
 
-<!-- ======================= Challenges ======================= -->
+<!-- ======================= Open challenges ======================= -->
 <section id="challenges">
   <div class="wrap">
     <div class="sec-head read">
       <p class="sec-kicker">Open problems</p>
-      <h2>What is still unsolved</h2>
-      <p>Phrase each item as a testable gap, not a wish. "X is unmeasured under condition Y" beats "X needs more work".</p>
+      <h2>What this survey cannot settle</h2>
+      <p>
+        Each item is phrased as a testable gap rather than a wish — the form the survey argues
+        future work should adopt.
+      </p>
     </div>
+
     <div class="grid g3">
       <article class="card reveal">
-        <h3>Open problem one</h3>
-        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+        <h3>Measurement, not capability</h3>
+        <p>
+          Rejected candidates' physical outcomes are unobserved. Until a protocol branches
+          reproducible failure states while fixing candidate set, continuation policy, horizon and
+          stochastic repeats, selection regret cannot be estimated from executed runs alone.
+        </p>
       </article>
       <article class="card reveal">
-        <h3>Open problem two</h3>
-        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+        <h3>Learner-dependent utility</h3>
+        <p>
+          Evaluator agreement does not select a training-data generator independently of the
+          learner. IWS's mixtures and DexTouch-WM's three learners differ in direction, so a single
+          correlation statistic cannot stand in for the downstream recipe.
+        </p>
       </article>
       <article class="card reveal">
-        <h3>Open problem three</h3>
-        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+        <h3>Runtime endpoints are mixed</h3>
+        <p>
+          Correction access, action-index alignment, and update timing are distinct operations.
+          None of the reported studies collapses them into a single runtime-efficiency claim, and
+          the paper declines to do so in synthesis.
+        </p>
       </article>
       <article class="card reveal">
-        <h3>Open problem four</h3>
-        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+        <h3>Guarantees need physical interfaces</h3>
+        <p>
+          Formal certificates assume a valid state/uncertainty model plus a stabilising policy, a
+          feasible terminal backup, or an admissible safe input. A visual forecast supplies none of
+          these automatically.
+        </p>
       </article>
       <article class="card reveal">
-        <h3>Open problem five</h3>
-        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+        <h3>Intervention can cause harm</h3>
+        <p>
+          Automatic repair pipelines scored below policy-only baselines on physical Franka tasks.
+          Reliability therefore requires measuring the consequence of an intervention, not only its
+          timing.
+        </p>
       </article>
       <article class="card reveal">
-        <h3>Open problem six</h3>
-        <p>What is missing, why existing evaluations cannot detect it, and what an experiment would look like.</p>
+        <h3>Sampling representativeness</h3>
+        <p>
+          The Core Evidence Set is mechanism-focused, not a representative sample. Prevalence of
+          benefits and failures across the field cannot be inferred from it, and the inclusion
+          rationales were recorded retrospectively.
+        </p>
       </article>
     </div>
   </div>
@@ -478,49 +862,50 @@
     <div class="sec-head read">
       <p class="sec-kicker">Citation</p>
       <h2>BibTeX</h2>
-      <p>Keep the key stable once published — people will have it in their .bib files.</p>
+      <p>Author information is withheld for review; update this block once the paper is public.</p>
     </div>
 
-    <!-- <!== 改这里 9/12: BibTeX 内容，注意 key 与 year --> 
     <div class="code-block reveal">
       <button class="copy-btn" type="button" data-copy="#bibtex">Copy</button>
-      <pre id="bibtex"><code>@article{author2025samplesurvey,
-  title   = {Sample Survey Title: A Template for Single-Page Survey Sites},
-  author  = {Author, First and Author, Second and Author, Third},
-  journal = {arXiv preprint arXiv:XXXX.XXXXX},
-  year    = {2025}
+      <pre id="bibtex"><code>@article{worldmodelsphysicalai2026,
+  title   = {World Models for Physical AI: Learning to Predict,
+             Plan, and Act in the Real World},
+  author  = {Anonymous Author(s)},
+  journal = {Manuscript submitted for review},
+  year    = {2026},
+  note    = {Coverage Corpus: 758 publication families;
+             Core Evidence Set: 17 study families}
 }</code></pre>
     </div>
 
     <div class="note read">
-      <p>Correspondence: <a href="mailto:corresponding@example.com">corresponding@example.com</a></p>
+      <p>
+        <strong>Scope note.</strong> This page summarises the survey's argument and selected
+        reported figures. All numbers are within-study anchors, not cross-survey scores, and should
+        be read against the protocol boundaries stated in the tables. Figures 2, 3 and 5–6 are not
+        yet reproduced on this page.
+      </p>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ======================= 页脚 ======================= -->
+
 <footer>
   <div class="wrap foot-grid">
     <div>
-      <!-- <!== 改这里 10/12: 版权与团队名 --> 
-      <p><strong>Sample Survey Team</strong></p>
-      <p>© <span id="year">2025</span>. Text and figures released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> unless stated otherwise.</p>
-      <p>Site last updated: <span id="updated">2025-01-01</span></p>
+      <p><strong>World Models for Physical AI</strong> — survey site</p>
+      <p>© <span id="year">2026</span>. Figures and tables reproduced from the manuscript for summarisation; consult the paper for authoritative values.</p>
+      <p>Page last updated: <span id="updated">2026-10-22</span></p>
     </div>
     <div>
-      <p><strong>Links</strong></p>
-      <p><a href="#">Paper</a> · <a href="#">GitHub</a> · <a href="#">Datasets</a></p>
-      <!-- <!== 改这里 11/12: 隐私/统计说明，如果加了访问统计必须在这里披露 --> 
+      <p><strong>Scope</strong></p>
+      <p>Coverage Corpus 758 families · Core Evidence Set 17 families</p>
       <p>No cookies, no tracking, no third-party requests.</p>
     </div>
   </div>
 </footer>
-
-<button class="to-top" id="toTop" type="button" aria-label="Back to top">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
 
 <script>
 /* ==========================================================================
@@ -635,8 +1020,5 @@
 })();
 </script>
 
-<!-- <!== 改这里 12/12: 访问统计（可选）。推荐 Cloudflare Web Analytics：
-     免费、无 cookie、不需要在页面上放 cookie 横幅。粘贴官方给的 script 即可。
-     用统计就必须同步更新页脚第 11 处的那句隐私说明。 --> 
 </body>
 </html>
