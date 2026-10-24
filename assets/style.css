@@ -361,6 +361,35 @@ td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .mark-n { color: var(--text-mute); font-weight: 700; }
 .table-note { font-size: .85rem; color: var(--text-mute); margin-top: -14px; }
 
+/* ---------- 9b. 统一数据表 (data table) ----------------------------------
+   本页只用一种表格语法，保证格式一致：
+     第一列 = 分类标签（粗体、不换行）
+     中间列 = 文字说明（左对齐）
+     数字列 = .num（等宽、右对齐、tabular）
+     表下 = .table-note，统一含 Legend 与 Source 两部分
+   新增表格请复制同一结构，不要另造样式。
+   ------------------------------------------------------------------------ */
+table.data { min-width: 680px; }
+table.data th[scope="row"] {
+  font-weight: 700; color: var(--text); white-space: nowrap;
+  border-right: 1px solid var(--border);
+}
+table.data td.num, table.data th.num {
+  text-align: right; font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono); white-space: nowrap;
+}
+table.data tbody tr:hover th[scope="row"] { background: color-mix(in srgb, var(--brand) 4%, transparent); }
+
+/* 分类行（跨列的小标题） */
+table.data tr.grp th {
+  background: var(--bg-soft); color: var(--brand-ink);
+  font-size: .76rem; font-weight: 750; letter-spacing: .05em; text-transform: uppercase;
+  padding: 8px 16px; border-right: 0;
+}
+
+.table-note .src { display: block; margin-top: 6px; opacity: .8; }
+.table-note b { color: var(--text-soft); }
+
 /* ---------- 10. 代码 / BibTeX ------------------------------------------- */
 .code-block { position: relative; margin: 24px 0; }
 pre {
