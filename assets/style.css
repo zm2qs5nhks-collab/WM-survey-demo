@@ -267,6 +267,13 @@ p:last-child { margin-bottom: 0; }
 .prose p { margin: 0; color: var(--text-soft); }
 .prose strong { color: var(--text); }
 
+/* 小节编号：与论文的 § 编号一致，便于读者对照原文 */
+.no {
+  display: inline-block; min-width: 2.9em;
+  font-family: var(--font-mono); font-size: .82em; font-weight: 700;
+  letter-spacing: .02em; color: var(--brand);
+}
+
 /* 落首字母，增强“论文感” */
 .dropcap::first-letter {
   float: left; font-size: 3.1em; line-height: .84; font-weight: 800;
@@ -317,15 +324,15 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------- 6b. 箭头链 (chain) -------------------------------------------
    用于表示因果或流程。横向排列，窄屏自动转纵向。
-   用法：
-     <div class="chain">
-       <div class="chain-node"><b>命令</b><span>policy 发出</span></div>
-       ...
-     </div>
-   节点之间无需手写箭头，由 .chain-node + .chain-node 的 ::before 生成。
+
+   箭头几何：伪元素精确铺满节点之间的间隙（left = -gap，width = gap），
+   再用 grid 居中字形。不用 left + translate(-50%) —— 那会双重偏移，
+   箭头会落到框外。改 --chain-gap 即可整体调间距，箭头自动跟随。
    ------------------------------------------------------------------------ */
 .chain {
-  display: flex; flex-wrap: wrap; align-items: stretch; gap: 14px;
+  --chain-gap: 36px;
+  display: flex; flex-wrap: wrap; align-items: stretch;
+  gap: var(--chain-gap);
   margin: 0; padding: 0; list-style: none;
 }
 .chain-node {
@@ -339,21 +346,31 @@ p:last-child { margin-bottom: 0; }
 .chain-node.is-accent { border-color: color-mix(in srgb, var(--brand) 45%, var(--border)); background: color-mix(in srgb, var(--brand) 5%, var(--surface)); }
 .chain-node.is-accent b { color: var(--brand-ink); }
 
-/* 箭头：默认向右 */
+/* 箭头：横向时铺满左右间隙 */
 .chain-node + .chain-node::before {
-  content: "→"; position: absolute; left: -14px; top: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--brand); font-size: 1rem; font-weight: 800; line-height: 1;
-  width: 14px; text-align: center;
+  content: "→";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(-1 * var(--chain-gap));
+  width: var(--chain-gap);
+  display: grid; place-items: center;
+  color: var(--brand); font-size: 1.05rem; font-weight: 800; line-height: 1;
+  pointer-events: none;
 }
-/* 窄屏：转纵向，箭头向下 */
+
+/* 窄屏：转纵向，箭头铺满上下间隙 */
 @media (max-width: 780px) {
-  .chain { flex-direction: column; gap: 26px; }
+  .chain { flex-direction: column; }
   .chain-node + .chain-node::before {
-    content: "↓"; left: 50%; top: -26px;
-    transform: translate(-50%, 0);
+    content: "↓";
+    top: calc(-1 * var(--chain-gap));
+    bottom: auto;
+    left: 0; right: 0;
+    width: auto;
+    height: var(--chain-gap);
   }
 }
+
 /* 链的说明文字 */
 .chain-caption { font-size: .84rem; color: var(--text-mute); margin: 0; }
 .chain-caption b { color: var(--text-soft); }
