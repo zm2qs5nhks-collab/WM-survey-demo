@@ -72,10 +72,9 @@
 
     <h1>World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World</h1>
     <p class="lede">
-      Differences in representations, action interfaces, and evaluation protocols obscure
-      <em>when better predictions yield better decisions</em>. This survey reviews data foundations
-      and modelling approaches across robotics, navigation, and autonomous driving, then examines
-      three gaps between what a world model predicts and what a downstream consumer actually gains.
+      A world model can be accurate and still useless to the decision that consumes it. This survey
+      reviews data foundations and modelling approaches across robotics, navigation, and autonomous
+      driving, then asks what each downstream use actually measures.
     </p>
 
     <p class="authors"><span>Anonymous Author(s)</span></p>
@@ -99,17 +98,15 @@
       <p class="sec-kicker">Abstract</p>
       <h2>Better predictions, unclear decisions</h2>
       <p>
-        World models, which predict how environments evolve under actions, increasingly support
-        simulation, policy learning, planning, and evaluation in physical AI. However, differences
-        in representations, action interfaces, and evaluation protocols obscure when better
-        predictions yield better decisions.
+        Differences in representations, action interfaces, and evaluation protocols obscure when
+        better predictions yield better decisions. Three gaps recur across robotics, navigation and
+        driving: recursive accuracy is not planning utility, evaluator agreement is not training
+        utility, and predictive information is not execution-time correction.
       </p>
       <p>
-        Drawing on experiments and counterexamples, we examine gaps between recursive accuracy and
-        planning utility, evaluator agreement and policy-training outcomes, and predictive
-        information and execution-time correction. We organise evidence across five uses, identify
-        unresolved attribution questions, and discuss requirements for reliable, action-grounded
-        world modelling.
+        Each gap has the same shape. An experiment reports an endpoint that does not test the claim
+        being made, so a reader cannot tell whether the model helped the decision or only the
+        forecast.
       </p>
     </div>
 
@@ -118,9 +115,9 @@
         <span class="card-num">01</span>
         <h3>Recursive fidelity</h3>
         <p>
-          In GNS, perturbing training inputs improves recursive rollout accuracy while worsening
-          clean one-step accuracy. In ContactWorld, the representation with the lowest relative
-          prediction-error growth does not produce the highest planning success.
+          GNS improves recursive rollouts under perturbed training while worsening clean one-step
+          accuracy. ContactWorld's lowest prediction-error growth does not give its best planning
+          success.
         </p>
         <div class="tag-row"><span class="tag">GNS</span><span class="tag alt">ContactWorld</span></div>
       </article>
@@ -128,30 +125,20 @@
         <span class="card-num">02</span>
         <h3>Evaluator agreement</h3>
         <p>
-          DexTouch-WM reports higher evaluator correlation for WM-Mix (r = .844) than WM-Robot
-          (r = .646), yet WM-Robot gives higher training means for two of three policy learners.
-          IWS finds learner-dependent outcomes the same way.
+          DexTouch-WM reaches r = .844 for WM-Mix against .646 for WM-Robot, yet WM-Robot trains two
+          of three learners better. IWS finds the same learner dependence.
         </p>
         <div class="tag-row"><span class="tag">DexTouch-WM</span><span class="tag alt">IWS</span></div>
       </article>
       <article class="card reveal">
         <span class="card-num">03</span>
-        <h3>Prediction</h3>
+        <h3>Execution-time inference</h3>
         <p>
-          Under an oracle context held fixed, FutureRTC scores 96.6% from the first generated action
-          but 0.9% starting at index k = 20 after the same delay. TacPAC reaches 47 → 64% yet leaves
-          its Bottle task unchanged at 40 / 40%.
+          Under a fixed oracle context, FutureRTC scores 96.6% from the first action and 0.9% from
+          index 20. TacPAC reaches 47 → 64% yet leaves Bottle at 40 / 40%.
         </p>
         <div class="tag-row"><span class="tag">FutureRTC</span><span class="tag alt">TacPAC</span></div>
       </article>
-    </div>
-
-    <div class="note prose">
-      <p>
-        <strong>Why this matters.</strong> These are not cases where an experiment was
-        inconclusive. They are cases where the reported endpoint does not test the claim being
-        made — so a reader cannot tell whether the model helps the decision or only the forecast.
-      </p>
     </div>
 
     <figure class="fig-zoom reveal">
@@ -167,61 +154,85 @@
 <section id="foundations">
   <div class="wrap">
     <div class="sec-head prose">
-      <p class="sec-kicker">Part I — §1 Foundations and Scope</p>
+      <p class="sec-kicker">Part I — Foundations and Scope</p>
       <h2>Three coordinates, then the evidence they demand</h2>
       <p>
-        The manuscript places a world model at three descriptive coordinates before assessing it.
-        The fourth node is the one the survey adds: each coordinate fixes a different set of
-        admissible evidence.
+        A world model is located before it is scored. The survey uses three descriptive coordinates,
+        then adds the step most comparisons skip: each coordinate fixes which evidence can support a
+        claim.
       </p>
     </div>
 
-    <div class="prose">
-      <h3><span class="no">1.2</span>The analytical framework</h3>
+    <div class="grid g3">
+      <article class="card reveal">
+        <span class="card-num">A1</span>
+        <h3>Prediction target</h3>
+        <p>
+          Pixels or video, latent state, objects and geometry, or physical and multimodal variables.
+          The choice constrains what a consumer can use: derivatives for an integrator, geometric
+          change for inverse dynamics.
+        </p>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">A2</span>
+        <h3>Action query</h3>
+        <p>
+          Passive, supplied candidates, goal-conditioned, or joint world–action. Output modality
+          never reveals this: two video models can sit at opposite ends of the axis.
+        </p>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">A3</span>
+        <h3>Prediction consumer</h3>
+        <p>
+          Simulation, policy learning, policy evaluation, planning, or execution-time correction.
+          One model may serve several, but evidence from one does not carry to another.
+        </p>
+      </article>
     </div>
 
-    <div class="chain">
-      <div class="chain-node">
-        <b>Prediction target</b>
-        <span>Pixels or video · latent state · objects and geometry · physical and multimodal variables</span>
-      </div>
-      <div class="chain-node">
-        <b>Action query</b>
-        <span>Passive · supplied candidates · goal-conditioned · joint world–action</span>
-      </div>
-      <div class="chain-node">
-        <b>Prediction consumer</b>
-        <span>Simulation · policy learning · policy evaluation · planning · correction</span>
-      </div>
-      <div class="chain-node is-accent">
-        <b>Evidence required</b>
-        <span>A subset of L1–L6, selected by the consumer — never a single score</span>
-      </div>
+    <div class="grid g2">
+      <article class="card reveal">
+        <h3>V-JEPA 2 answers supplied actions</h3>
+        <p>
+          Freezes an action-free encoder, then trains a predictor on synchronized robot observations
+          and base-frame end-effector changes, supporting planning over candidate actions.
+        </p>
+        <div class="tag-row"><span class="tag">action-conditioned</span></div>
+      </article>
+      <article class="card reveal">
+        <h3>UniPi generates a desired future</h3>
+        <p>
+          Produces task-conditioned video, grounds frame transitions through a separately trained
+          inverse-dynamics decoder, and executes open-loop in its reported experiments.
+        </p>
+        <div class="tag-row"><span class="tag alt">goal → future</span></div>
+      </article>
+      <article class="card reveal">
+        <h3>GNS advances a supplied state</h3>
+        <p>
+          Predicts particle accelerations and integrates them, rebuilding proximity as particles
+          move. It accepts no new candidate-command queries.
+        </p>
+        <div class="tag-row"><span class="tag alt">structured state</span></div>
+      </article>
+      <article class="card reveal">
+        <h3>Dreamer exposes no action query</h3>
+        <p>
+          Trains an actor on returns imagined in latent space. The prediction is real; the interface
+          offers no executable action query.
+        </p>
+        <div class="tag-row"><span class="tag">passive</span></div>
+      </article>
     </div>
-    <p class="chain-caption">
-      <b>Read left to right:</b> the same architecture can sit at different coordinates.
-      <b>V-JEPA 2</b> answers supplied candidate actions; <b>UniPi</b> generates a goal-conditioned
-      future and decodes it with inverse dynamics; <b>GNS</b> advances a supplied physical state
-      without accepting new commands; <b>Dreamer</b> exposes no executable action query at all.
-      Output modality alone never identifies the coordinate.
-    </p>
 
-    <div class="prose">
-      <h3><span class="no">1.3</span>Working definitions</h3>
+    <div class="note prose">
       <p>
-        A <em>world model</em> is a learned predictor of environmental evolution: future
-        observations, latent states, object relations, physical quantities, or action consequences.
-        An <em>action-conditioned</em> model predicts consequences under specified actions or
-        interventions; a <em>passive</em> model need not expose executable-action queries.
-        Prediction, policy, and control are computational roles, not necessarily separate networks —
-        action generation alone does not establish consequence prediction.
-      </p>
-    </div>
-
-    <div class="prose">
-      <h3><span class="no">1.4</span>Review protocol</h3>
-      <p>
-        Two resources are kept deliberately separate, because they license different claims.
+        <strong>Working definition.</strong> A world model is a learned predictor of environmental
+        evolution — future observations, latent states, object relations, physical quantities, or
+        action consequences. Prediction, policy, and control are computational roles, not
+        necessarily separate networks: action generation alone does not establish consequence
+        prediction.
       </p>
     </div>
 
@@ -229,30 +240,20 @@
       <article class="card reveal">
         <h3>Coverage Corpus</h3>
         <p>
-          758 publication families across seven overlapping retrieval views. A discovery inventory
-          for locating work — not an exhaustively screened sample, and not a set of full-text
-          assessments.
+          758 publication families across seven retrieval views. A discovery inventory: not an
+          exhaustively screened sample, and not a set of full-text assessments.
         </p>
-        <div class="tag-row"><span class="tag">758 families</span><span class="tag alt">7 views</span></div>
+        <div class="tag-row"><span class="tag">758 families</span></div>
       </article>
       <article class="card reveal">
         <h3>Core Evidence Set</h3>
         <p>
-          17 study families, each with an identifiable use of learned prediction and a locatable
-          original experiment. Includes negative controls: GNS's one-step/rollout trade-off,
-          ContactWorld's Valve and Dim regressions, TacPAC's unchanged Bottle task.
+          17 families, each with a locatable original experiment. Includes negative controls: GNS's
+          one-step/rollout trade-off, ContactWorld's Valve and Dim regressions, TacPAC's unchanged
+          Bottle task.
         </p>
-        <div class="tag-row"><span class="tag">17 families</span><span class="tag alt">negative controls</span></div>
+        <div class="tag-row"><span class="tag alt">17 families</span><span class="tag alt">negative controls</span></div>
       </article>
-    </div>
-
-    <div class="note warn prose">
-      <p>
-        <strong>Selection, not sampling.</strong> The crosswalk against the frozen corpus yields two
-        strict matches (GNS, ContactWorld), one resolved title variant (Drive-WM), and fourteen
-        families without a direct match. Because the set is mechanism-focused, the prevalence of
-        benefits or failures across the field cannot be inferred from it.
-      </p>
     </div>
   </div>
 </section>
@@ -261,80 +262,76 @@
 <section id="data">
   <div class="wrap">
     <div class="sec-head prose">
-      <p class="sec-kicker">Part II — §2 Data, Representations, and Predictive Models</p>
-      <h2>Which link of the chain each resource covers</h2>
+      <p class="sec-kicker">Part II — Data, Representations, and Predictive Models</p>
+      <h2>What each resource actually aligns</h2>
       <p>
-        Predicting observed motion and predicting a robot command's consequence are different
-        supervision problems. The manuscript's test is whether a resource pairs a <em>supplied
-        command</em> with a <em>measured environmental response</em> — and most do not.
+        A command-response evaluation needs four links: a commanded action, the realized motion, the
+        environmental response, and the next observation. Most resources cover one or two of them,
+        and which two decides what the trained predictor can be asked.
       </p>
     </div>
 
-    <div class="chain">
-      <div class="chain-node">
-        <b>Commanded action</b>
-        <span>Supplied by the policy, with an explicit frame, duration and control mode</span>
-      </div>
-      <div class="chain-node">
-        <b>Realized motion</b>
-        <span>L3 · does this command produce this robot or agent motion?</span>
-      </div>
-      <div class="chain-node">
-        <b>Environment response</b>
-        <span>L4 · does that motion displace the object or change contact?</span>
-      </div>
-      <div class="chain-node is-accent">
-        <b>New observation</b>
-        <span>Fed back as the next input, closing the loop</span>
-      </div>
+    <figure class="fig-zoom is-placeholder reveal">
+      <a href="assets/table-interfaces.svg" target="_blank" rel="noopener">
+        <img src="assets/table-interfaces.svg" alt="Placeholder for manuscript Table 2 — supervision and model interfaces" width="1700" height="940" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Table 1.</b> Representative supervision and model interfaces. The A/G/S marks record which query a cited setup documents — not accuracy or task success. Source: manuscript Table 2.</figcaption>
+    </figure>
+
+    <div class="grid g3">
+      <article class="card reveal">
+        <h3>DROID and OXE align the first two links</h3>
+        <p>
+          Both pair commands with observations across scenes and bodies, but frame, duration, control
+          mode and observation frequency stay unaligned. Pooling can change which transition a pair
+          describes.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>PhysInOne labels physics without commands</h3>
+        <p>
+          Rendered evolution with depth, trajectories, materials and text under asset-disjoint
+          splits — and no robot-command trajectories, so command queries cannot be trained on it.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>DexTouch-WM retargets human touch</h3>
+        <p>
+          Aligns tactile layouts, coordinates, vision/touch streams and kinematic retargeting,
+          making contact consequences available beyond the human recording.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Two bridges to executable commands</h3>
+        <p>
+          V-JEPA 2 learns the visual representation first, then trains a command-conditioned
+          predictor. DreamDojo learns latent-action proxies from human video, then replaces them with
+          robot actions in post-training.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Graph models update state, they do not acquire it</h3>
+        <p>
+          GNS and MeshGraphNets integrate predicted accelerations or node outputs from a supplied
+          physical state. State acquisition sits outside what they test.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Transfer gain belongs to the recipe</h3>
+        <p>
+          Cosmos Policy with roughly 800 simulated demonstrations per task and domain randomization
+          reports 35% zero-shot on four Franka tasks — a result for video pretraining, generated
+          demonstrations and randomization together.
+        </p>
+      </article>
     </div>
-    <p class="chain-caption">
-      <b>Coverage, per resource.</b> DROID and Open X-Embodiment align the first two links and
-      assess data mixtures. PhysInOne labels links two to four with depth, trajectories and
-      materials, but ships no robot-command trajectories. IntPhys 2, Physion and PHYRE test event
-      judgement and contact at the third node only. <b>No resource in the Core Evidence Set pairs a
-      commanded action with its measured environmental response</b> — the manuscript names that
-      paired-state intervention as a proposed, unexecuted test.
-    </p>
 
-    <div class="prose">
-      <h3><span class="no">2.1</span>The intervention gap in data</h3>
+    <div class="note warn prose">
       <p>
-        Synchronized corpora establish the command–observation link without erasing control
-        conventions. A shared storage format does not itself align executable command meanings:
-        action frame, duration, control mode, observation frequency, and embodiment remain part of
-        the supervision. Pooling more trajectories can therefore change <em>which transition</em> a
-        training pair describes rather than simply broadening coverage.
-      </p>
-
-      <h3><span class="no">2.2</span>Video as feedback, not only forecast</h3>
-      <p>
-        Returning generated observations to an agent changes the consumer even when the predictor is
-        unchanged. In Interactive World Simulator, teleoperators supply commands to collect
-        synthetic demonstrations, whereas policy evaluation feeds generated observations back to a
-        policy. The first interface creates training examples; the second lets the tested policy
-        choose its own subsequent inputs. Neither reduces to the fidelity of an independently
-        sampled video.
-      </p>
-
-      <h3><span class="no">2.3</span>Latent and structured representations</h3>
-      <p>
-        A representation matters through the distinctions its consumer needs: derivatives for an
-        integrator, attainable geometric change for inverse dynamics, or anticipated deformation for
-        contact control. A compact encoder is not yet a queryable transition. With supplied physical
-        state, graphs organise a numerical update rather than discover objects — MeshGraphNets
-        combines mesh and spatial-contact connectivity and integrates node outputs, optionally
-        remeshing.
-      </p>
-
-      <h3><span class="no">2.4</span>Generalization across scenes and embodiments</h3>
-      <p>
-        Three bridges coexist — transferring experience, adapting executable actions, and preserving
-        selected outputs — but their evidence concerns different changes rather than one
-        generalization score. Sim-to-real WAM adapts Cosmos Policy with roughly 800 simulated
-        demonstrations per task and reports 35% mean zero-shot success across four Franka tasks.
-        That measures the complete transfer recipe, not an isolated contribution of world-model
-        prediction.
+        <strong>The missing endpoint.</strong> IntPhys 2, Physion and PHYRE test event judgement and
+        contact at the environmental-response link; none pairs a commanded action with its measured
+        response. The manuscript proposes a paired-state intervention that varies command direction,
+        magnitude or duration and measures motion and contact separately. It remains unexecuted.
       </p>
     </div>
   </div>
@@ -344,100 +341,67 @@
 <section id="learning">
   <div class="wrap">
     <div class="sec-head prose">
-      <p class="sec-kicker">Part III — §3 Learning, Simulation, and Decision Making</p>
-      <h2>Each consumer is scored by a different quantity</h2>
+      <p class="sec-kicker">Part III — Learning, Simulation, and Decision Making</p>
+      <h2>Five consumers, five measured quantities</h2>
       <p>
-        This is the survey's mechanism. A result in one column cannot be carried into another, and
-        the three gaps stated in the abstract are exactly mismatches between a claimed column and a
-        measured one.
+        Each consumer scores a different quantity, so a result in one column cannot be carried into
+        another. The three gaps above are exactly mismatches between a claimed column and a measured
+        one.
       </p>
     </div>
 
-    <div class="chain">
-      <div class="chain-node">
-        <b>Simulation</b>
-        <span>Rollout error · GNS: recursion ↑ while one-step ↓</span>
-      </div>
-      <div class="chain-node">
-        <b>Policy learning</b>
-        <span>Trained return · Fast-WAM −8.0 / −4.1 pp without video co-training</span>
-      </div>
-      <div class="chain-node">
-        <b>Evaluation</b>
-        <span>Agreement with independent outcomes · DexTouch r = .844 / .646</span>
-      </div>
-      <div class="chain-node">
-        <b>Planning</b>
-        <span>Task success under a protocol · Yuan 68.9 / 79.2%; ContactWorld 32.3 vs 39.5%</span>
-      </div>
-      <div class="chain-node is-accent">
-        <b>Correction</b>
-        <span>Detect → revise → recover · TacPAC 47 → 64%, Bottle 40 / 40%</span>
-      </div>
-    </div>
-    <p class="chain-caption">
-      <b>Numbers are within-study anchors, not a ranking.</b> Fast-WAM's two figures are its own
-      RoboTwin and LIBERO deltas; ContactWorld's pair is point-cloud versus full tactile on the same
-      12-task protocol. Comparing across nodes would compare unlike endpoints — which is the error
-      the survey is arguing against.
-    </p>
+    <figure class="fig-zoom is-placeholder reveal">
+      <a href="assets/table-decisions.svg" target="_blank" rel="noopener">
+        <img src="assets/table-decisions.svg" alt="Placeholder for manuscript Table 3 — where predictions enter decisions" width="1700" height="940" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Table 2.</b> Interface roles and selected within-study evidence. Figures are within-study anchors, not a cross-benchmark ranking. Source: manuscript Table 3.</figcaption>
+    </figure>
 
-    <div class="prose">
-      <h3><span class="no">3.1</span>Planning with predicted consequences</h3>
-      <p>
-        Consequence planning must both propose a useful motion and recognise its value before
-        committing. PETS propagates sampled trajectories through probabilistic dynamics ensembles and
-        uses CEM; PlaNet runs CEM on predicted latent states and rewards without rendering images for
-        scoring; TD-MPC2 guides latent search with a learned policy prior and a terminal value.
-        Ensemble uncertainty, a visual belief, and policy/value guidance change different parts of
-        the decision, not merely alternative forecast formats.
-      </p>
-
-      <h3><span class="no">3.2</span>Driving and navigation as an interface test</h3>
-      <p>
-        Three interfaces appear: searching supplied candidates, conditioning action generation on
-        predicted context, and refreshing decisions from feedback. In the first, prediction changes a
-        ranking; in the second it supplies features or training targets; in the third the next
-        computation is anchored either to generated history or to the executed world. These
-        distinctions determine which ablation explains a reported gain.
-      </p>
-
-      <h3><span class="no">3.3</span>Policy learning with imagined experience</h3>
-      <p>
-        What the optimizer consumes determines how imagination changes learning. Dreamer
-        differentiates imagined returns through fixed latent dynamics; MBPO supplies short predicted
-        transitions to SAC updates; DreamerV3 uses normalized REINFORCE. MBPO's Hopper ablations
-        retain much of the benefit with one-step branches, degrade with long branches, and outperform
-        extra no-model SAC updates — so transition accumulation, return truncation, and state
-        information are three different weaknesses.
-      </p>
-
-      <h3><span class="no">3.4</span>Memory, failure detection, and recovery</h3>
-      <p>
-        Memory preserves context; recovery changes what happens after a failure. A
-        history-conditioned forecast can support simulation, and a history-conditioned actor can
-        maintain task progress, without either constructing a response to an impending failure.
-        Mem-World's policy-evaluation experiment reports imagined–real success correlation of
-        r = 0.97 — evaluator agreement, not an online recovery endpoint.
-      </p>
-
-      <h3><span class="no">3.5</span>Visual plans and joint world–action models</h3>
-      <p>
-        Predictive supervision and runtime future information answer different questions. Fast-WAM's
-        base action tokens read features of the current observation, not future-video tokens, and
-        removing video co-training leaves architecture and inference unchanged while costing the
-        8.0 and 4.1 points cited above. Executing only decoded actions does not remove future tokens
-        from sampling, so information available during denoising and outputs retained afterwards are
-        two descriptions of one system.
-      </p>
-
-      <h3><span class="no">3.6</span>Reasoner-assisted revision: a boundary comparator</h3>
-      <p>
-        Revision by a reasoner changes a proposal by interpreting observations and task constraints;
-        it need not evaluate a predicted trajectory. Astra reports 48% hybrid versus 26% direct
-        success on ten RoboDojo tasks. The manuscript treats this as a comparator that sharpens what
-        counts as a prediction consumer, rather than as a sixth consumer to add to the list.
-      </p>
+    <div class="grid g3">
+      <article class="card reveal">
+        <h3>Simulation scores rollout error</h3>
+        <p>
+          GNS improves recursive rollouts under perturbed training while worsening clean one-step
+          accuracy. One number cannot represent both, and the survey keeps them separate.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Policy learning scores trained return</h3>
+        <p>
+          Removing video co-training costs Fast-WAM 8.0 RoboTwin and 4.1 LIBERO points while leaving
+          architecture and inference unchanged — a supervision effect, not an inference switch.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Evaluation scores agreement</h3>
+        <p>
+          DexTouch-WM reaches r = .844 for WM-Mix against .646 for WM-Robot, but WM-Robot trains two
+          of three learners better. Agreement and training utility diverge inside one study.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Planning scores task success</h3>
+        <p>
+          ContactWorld's four variants score 32.3% point clouds, 39.5% full tactile, 38.6%
+          visual-only cost, 36.5% width-matched on one 12-task protocol: error growth does not order
+          success.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Correction scores three endpoints</h3>
+        <p>
+          FutureRTC separates detection from revision: 96.6% from the first action, 0.9% from index
+          20 under a fixed oracle context. TacPAC reaches 47 → 64% yet leaves Bottle at 40 / 40%.
+        </p>
+      </article>
+      <article class="card reveal card-alt">
+        <h3>Revision is a comparator, not a consumer</h3>
+        <p>
+          Astra revises proposals by interpreting observations without scoring a predicted
+          trajectory: 48% hybrid versus 26% direct on ten RoboDojo tasks. It sharpens the definition
+          rather than extending the list.
+        </p>
+      </article>
     </div>
   </div>
 </section>
@@ -446,34 +410,40 @@
 <section id="evaluation">
   <div class="wrap">
     <div class="sec-head prose">
-      <p class="sec-kicker">Part IV — §4 Evaluation, Safety, and Reliability</p>
-      <h2>Six checks, and the boundary where each one fails</h2>
+      <p class="sec-kicker">Part IV — Evaluation, Safety, and Reliability</p>
+      <h2>Six checks, and where each one stops supporting the claim</h2>
       <p>
-        The levels are claim-dependent checks, not six mandatory gates. The caption below records
-        what the manuscript reports at the two boundaries that are most often crossed silently.
+        The levels are claim-dependent checks, not six gates to pass in order. What matters is which
+        level a reported endpoint actually touches.
       </p>
     </div>
 
-    <div class="prose">
-      <h3><span class="no">4.1</span>Prediction fidelity and decision utility</h3>
+    <div class="grid g3">
+      <article class="card reveal">
+        <h3>L1 · Perceptual fidelity</h3>
+        <p>Visual coherence of the predicted future, measured on appearance alone.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L2 · State and physical fidelity</h3>
+        <p>Task-relevant dynamics, geometry, or contact state in the predicted evolution.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L3 · Action realization</h3>
+        <p>Does changing a supplied command produce the corresponding robot or agent motion?</p>
+      </article>
+      <article class="card reveal">
+        <h3>L4 · Interaction grounding</h3>
+        <p>Does that realized motion produce the environmental response — displacement, contact?</p>
+      </article>
+      <article class="card reveal">
+        <h3>L5 · Planning and policy utility</h3>
+        <p>Effect on action choice or learning under a stated consumer and protocol.</p>
+      </article>
+      <article class="card reveal">
+        <h3>L6 · Operational reliability</h3>
+        <p>Failure rate, intervention timing, recovery, and constraints during execution.</p>
+      </article>
     </div>
-
-    <div class="chain">
-      <div class="chain-node"><b>L1</b><span>Perceptual fidelity · does the future look coherent?</span></div>
-      <div class="chain-node"><b>L2</b><span>State and physical fidelity · dynamics, geometry, contact</span></div>
-      <div class="chain-node"><b>L3</b><span>Action realization · command → motion</span></div>
-      <div class="chain-node"><b>L4</b><span>Interaction grounding · motion → world response</span></div>
-      <div class="chain-node"><b>L5</b><span>Planning and policy utility · choice or learning</span></div>
-      <div class="chain-node is-accent"><b>L6</b><span>Operational reliability · failure, timing, recovery</span></div>
-    </div>
-    <p class="chain-caption">
-      <b>The arrows trace how a claim travels, not a gate sequence.</b> AVID already separates L1
-      from L3 inside one evaluation: RT-1 frame metrics score generated appearance, while Action
-      Error Ratio compares generated and real video through a video-to-action regressor — a motion
-      proxy, not robot execution. GNS shows L2 recursion can trade against one-step L2. ContactWorld
-      shows L2 error growth need not order L5 success: 32.3% point clouds, 39.5% full tactile,
-      38.6% visual-only cost, 36.5% width-matched, across variants of one protocol.
-    </p>
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-eval.svg" target="_blank" rel="noopener">
@@ -482,30 +452,40 @@
       <figcaption><b>Figure 2.</b> Design coordinates and claim-matched evidence. The three design axes locate a predictor and its consumer; evidence dimensions L1–L6 identify distinct checks on the claimed use.</figcaption>
     </figure>
 
-    <div class="prose">
-      <h3><span class="no">4.2</span>Uncertainty, constraints, and runtime guardrails</h3>
-      <p>
-        Safety mechanisms intervene at different operations: exploration, policy optimisation,
-        command acceptance, or alarm generation. Confidence-bounded Lyapunov learning restricts
-        exploration to an invariant region; predictive safety filtering tests a backup trajectory; a
-        control-barrier-function QP constrains the instantaneous derivative. Each requires a valid
-        state and uncertainty model plus, respectively, a stabilising policy, a feasible terminal
-        backup, or an admissible safe input.
-      </p>
-      <p>
-        <strong>A visual forecast supplies none of these automatically, and an alarm is not a
-        completed intervention.</strong>
-      </p>
+    <figure class="fig-zoom is-placeholder reveal">
+      <a href="assets/table-eval.svg" target="_blank" rel="noopener">
+        <img src="assets/table-eval.svg" alt="Placeholder for manuscript Table 5 — what is evaluated" width="1700" height="940" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Table 3.</b> What is evaluated: endpoint and unit per study. The policy-evaluation marker identifies a protocol, not whether the model passed a benchmark. Source: manuscript Table 5.</figcaption>
+    </figure>
 
-      <h3><span class="no">4.3</span>Operational reliability and attribution</h3>
+    <div class="note prose">
       <p>
-        FutureRTC isolates action-index alignment under an oracle context: the first generated action
-        yields 96.6% success, while starting at index k = 20 after the same delay yields 0.9%. This
-        is an oracle-context diagnostic, not evidence that the model can access that future
-        observation when it generates the action. Intervention can itself cause failure: VLA-FixBench's
-        automatic judgers achieve 0–25% completion versus 30% policy-only and 65% human intervention
-        on two physical Franka tasks.
+        <strong>Where the levels break.</strong> AVID separates L1 from L3 inside one evaluation:
+        RT-1 frame metrics score appearance, while Action Error Ratio compares generated and real
+        video through a video-to-action regressor — a motion proxy, not robot execution. GNS shows
+        L2 recursion trading against one-step L2. No L1 or L2 gain establishes an L5 benefit, and a
+        policy-evaluation correlation is not a newly trained policy's success rate.
       </p>
+    </div>
+
+    <div class="grid g2">
+      <article class="card reveal">
+        <h3>Guarantees need physical interfaces</h3>
+        <p>
+          Lyapunov bounds, safety filters and control-barrier QPs each require a valid state and
+          uncertainty model plus a stabilising policy, a feasible terminal backup, or an admissible
+          safe input. A visual forecast supplies none of these.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>An intervention can itself cause failure</h3>
+        <p>
+          VLA-FixBench's automatic judgers reach 0–25% completion against 30% policy-only and 65%
+          human intervention on two physical Franka tasks. Reliability needs the consequence, not
+          only the timing.
+        </p>
+      </article>
     </div>
   </div>
 </section>
@@ -517,8 +497,9 @@
       <p class="sec-kicker">Synthesis</p>
       <h2>What the evidence supports, and what is still unrun</h2>
       <p>
-        Two tables carry the empirical claim. They are reproduced as placeholders here and will be
-        replaced with screenshots of the original tables.
+        The reported contrasts support consumer-specific validation choices, not a ranking of model
+        families. Two tables carry that evidence, and both are reproduced here for screenshots of
+        the original.
       </p>
     </div>
 
@@ -526,37 +507,38 @@
       <a href="assets/table-consumer.svg" target="_blank" rel="noopener">
         <img src="assets/table-consumer.svg" alt="Placeholder for manuscript Table 7 Panel A — reported consumer evidence" width="1700" height="940" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Table 1.</b> Reported consumer evidence — five consumers and their reported contrasts. Boundary column states what each result does not settle. Source: manuscript Table 7, Panel A.</figcaption>
+      <figcaption><b>Table 4.</b> Reported consumer evidence: five consumers, the original contrast behind each, and the boundary that limits it. Source: manuscript Table 7, Panel A.</figcaption>
     </figure>
 
     <figure class="fig-zoom is-placeholder reveal">
       <a href="assets/table-cases.svg" target="_blank" rel="noopener">
         <img src="assets/table-cases.svg" alt="Placeholder for manuscript Table 7 Panel B — diagnostic cases A, B, C" width="1700" height="940" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Table 2.</b> Diagnostic cases A, B, C — couplings the literature has not yet separated. Only the final column proposes experiments, and none has been run. Source: manuscript Table 7, Panel B.</figcaption>
+      <figcaption><b>Table 5.</b> Diagnostic cases A, B, C: couplings the literature has not yet separated. Only the final column proposes experiments, and none has been run. Source: manuscript Table 7, Panel B.</figcaption>
     </figure>
 
-    <div class="note prose">
-      <p>
-        <strong>Why no other tables.</strong> The per-model interface matrix in the manuscript marks,
-        for each system, whether it answers supplied actions, generates goal-conditioned futures, or
-        exposes explicit structure. Reproducing those marks faithfully needs the original column
-        geometry, so the distinction is described in prose and in the Part I chain instead. The
-        evaluation and safety audits are reference tables for readers comparing protocols, not
-        claims that belong on a summary page.
-      </p>
-    </div>
-
-    <div class="prose">
-      <h3><span class="no">4.4</span>Three validation choices the evidence supports</h3>
-      <p>
-        GNS's recursive robustness cannot replace ContactWorld's goal-scored planning endpoint;
-        DexTouch-WM's evaluator ranking does not select a training-data generator independently of
-        the learner, as IWS's mixtures also illustrate; and FutureRTC's action-index alignment
-        differs from TacPAC's access to a predicted tactile reference. Existing surveys establish the
-        broader evaluation and attribution principles; the contribution here is to connect specific
-        controls and adverse outcomes to these distinct choices.
-      </p>
+    <div class="grid g3">
+      <article class="card reveal">
+        <h3>Robustness is not goal-scored utility</h3>
+        <p>
+          GNS's recursive robustness cannot replace ContactWorld's planning endpoint, because the
+          second scores goal distance while the first scores prediction error.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Ranking is not generator selection</h3>
+        <p>
+          DexTouch-WM's evaluator ranking does not select a training-data generator independently of
+          the learner, as IWS's mixture results also show.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Index alignment is not reference access</h3>
+        <p>
+          FutureRTC aligns the action index to a time origin; TacPAC changes access to a cached
+          predicted tactile reference. Two mechanisms, often reported as one runtime effect.
+        </p>
+      </article>
     </div>
   </div>
 </section>
@@ -565,9 +547,9 @@
 <section id="challenges">
   <div class="wrap">
     <div class="sec-head prose">
-      <p class="sec-kicker">§5 Open problems</p>
+      <p class="sec-kicker">Open problems</p>
       <h2>What this survey cannot settle</h2>
-      <p>Each item is a testable gap, in the form the survey argues future work should adopt.</p>
+      <p>Each item is a testable gap, stated the way the survey argues future work should state them.</p>
     </div>
 
     <div class="grid g3">
@@ -575,24 +557,24 @@
         <span class="card-num">01</span>
         <h3>Unobserved candidates</h3>
         <p>
-          Rejected candidates' physical outcomes are unobserved. Until a protocol branches
-          reproducible failure states while fixing candidate set, continuation policy, horizon and
-          repeats, selection regret cannot be estimated from executed runs.
+          Rejected candidates' physical outcomes are never observed. Selection regret stays
+          unmeasurable until a protocol branches failure states while fixing candidate set,
+          continuation policy, horizon and repeats.
         </p>
       </article>
       <article class="card reveal">
         <span class="card-num">02</span>
         <h3>Learner-dependent utility</h3>
         <p>
-          Evaluator agreement does not select a training-data generator independently of the
-          learner. A single correlation statistic cannot stand in for the downstream recipe.
+          Evaluator agreement cannot select a data generator independently of the learner. One
+          correlation statistic cannot substitute for the downstream training recipe.
         </p>
       </article>
       <article class="card reveal">
         <span class="card-num">03</span>
         <h3>Mixed runtime endpoints</h3>
         <p>
-          Correction access, action-index alignment, and update timing are distinct operations. No
+          Correction access, action-index alignment and update timing are distinct operations. No
           reported study collapses them into a single runtime-efficiency claim.
         </p>
       </article>
@@ -601,23 +583,23 @@
         <h3>Guarantees without interfaces</h3>
         <p>
           Formal certificates assume a valid state and uncertainty model plus a stabilising policy,
-          a feasible backup, or an admissible safe input. A visual forecast provides none of these.
+          a feasible backup, or an admissible safe input. A forecast provides none of them.
         </p>
       </article>
       <article class="card reveal">
         <span class="card-num">05</span>
         <h3>Intervention harms</h3>
         <p>
-          Automatic repair pipelines scored below policy-only baselines on physical tasks.
-          Reliability requires measuring the consequence of an intervention, not only its timing.
+          Automatic repair pipelines score below policy-only baselines on physical tasks.
+          Reliability requires the consequence of an intervention, not only its timing.
         </p>
       </article>
       <article class="card reveal">
         <span class="card-num">06</span>
         <h3>Sampling bias</h3>
         <p>
-          The Core Evidence Set is mechanism-focused, not a representative sample. The prevalence of
-          benefits and failures cannot be inferred from it, and inclusion rationales were recorded
+          The Core Evidence Set is mechanism-focused, not representative. The prevalence of benefits
+          and failures cannot be inferred from it, and inclusion rationales were recorded
           retrospectively.
         </p>
       </article>
@@ -649,10 +631,9 @@
 
     <div class="note prose">
       <p>
-        <strong>Scope note.</strong> This page summarises the survey's argument with selected
-        reported figures. All numbers are within-study anchors, not cross-survey scores, and should
-        be read against the protocol boundaries stated in the manuscript. Figures 2, 3 and 5–6 of the
-        manuscript are not reproduced here.
+        <strong>Scope note.</strong> Numbers on this page are within-study anchors, not cross-survey
+        scores, and should be read against the protocol boundaries in the manuscript. Figures 2, 3
+        and 5–6 of the manuscript are not reproduced here.
       </p>
     </div>
   </div>

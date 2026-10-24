@@ -311,6 +311,10 @@ p:last-child { margin-bottom: 0; }
 }
 .tag.alt { background: color-mix(in srgb, var(--brand-2) 12%, transparent); color: var(--brand-2); border-color: color-mix(in srgb, var(--brand-2) 24%, transparent); }
 
+
+/* 对照卡片：虚线边框，表示「这是边界案例、不属于主列表」 */
+.card-alt { border-style: dashed; }
+
 /* 高亮块 */
 .note {
   border-left: 4px solid var(--brand);
