@@ -219,13 +219,29 @@ h1 {
 }
 .btn-primary:hover { color: #fff; box-shadow: var(--shadow-lg); }
 
-/* ---------- 5. 章节 ------------------------------------------------------ */
+/* ---------- 5. 章节 ------------------------------------------------------
+   版式规则（务必遵守，避免风格漂移）：
+     每个 section 内只允许这几类直接子元素：
+       .sec-head   章节头（kicker + h2 + 可选 lead）
+       .prose      正文块（限宽阅读栏）
+       .grid       等高卡片网格（只用 g2 / g3）
+       .chain      箭头链（因果 / 流程）
+       figure      图片或截图占位
+       .note       提示块（仅两种：默认 / .warn）
+     垂直间距由 .wrap > * + * 统一给，禁止写内联 margin。
+   ------------------------------------------------------------------------- */
 main { display: block; }
 section { padding: 72px 0; border-bottom: 1px solid var(--border); }
 section:nth-of-type(even) { background: var(--bg-soft); }
 section:last-of-type { border-bottom: 0; }
 
-.sec-head { margin-bottom: 34px; }
+/* 统一纵向节奏：所有直接子元素之间等距，替代手写 margin-top。
+   hero 有自己的排版，不参与这条规则。 */
+section:not(.hero) .wrap > * + * { margin-top: 30px; }
+/* 链的说明紧跟链，间距收紧 */
+.chain + .chain-caption { margin-top: 14px; }
+
+.sec-head { margin: 0; }
 .sec-kicker {
   font-size: .76rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase;
   color: var(--brand-2); margin: 0 0 10px;
@@ -235,10 +251,21 @@ h2 {
   letter-spacing: -.022em; font-weight: 800; margin: 0 0 14px; max-width: 26ch;
 }
 h3 { font-size: 1.16rem; font-weight: 700; letter-spacing: -.012em; margin: 0 0 9px; }
-h4 { font-size: 1rem; font-weight: 700; margin: 26px 0 8px; }
+h4 { font-size: 1rem; font-weight: 700; margin: 0 0 8px; }
 p { margin: 0 0 16px; }
-.sec-head p:last-child { margin-bottom: 0; }
-.sec-head p { color: var(--text-soft); }
+p:last-child { margin-bottom: 0; }
+.sec-head p { color: var(--text-soft); max-width: 68ch; }
+
+/* 章节头内部间距也交给统一节奏，避免手写 margin 造成漂移 */
+.sec-head .sec-kicker { margin-bottom: 0; }
+.sec-head h2 { margin-bottom: 0; }
+
+/* 正文块：统一阅读栏宽，内部小标题与段落自动等距 */
+.prose { max-width: var(--maxw-read); }
+.prose > * + * { margin-top: 18px; }
+.prose h3 { margin-top: 6px; }
+.prose p { margin: 0; color: var(--text-soft); }
+.prose strong { color: var(--text); }
 
 /* 落首字母，增强“论文感” */
 .dropcap::first-letter {
@@ -247,7 +274,7 @@ p { margin: 0 0 16px; }
 }
 
 /* ---------- 6. 卡片网格 -------------------------------------------------- */
-.grid { display: grid; gap: 20px; }
+.grid { display: grid; gap: 20px; align-items: stretch; }
 .g2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .g3 { grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); }
 .g4 { grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
@@ -256,6 +283,8 @@ p { margin: 0 0 16px; }
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 26px;
   box-shadow: var(--shadow-sm);
+  /* 等高：卡片用列布局，末尾标签贴底，消除「有的行空、有的行满」 */
+  display: flex; flex-direction: column;
   transition: transform .18s, box-shadow .18s, border-color .18s;
 }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--brand) 40%, var(--border)); }
@@ -264,9 +293,9 @@ p { margin: 0 0 16px; }
   display: inline-flex; align-items: center; justify-content: center;
   width: 34px; height: 34px; border-radius: 9px; margin-bottom: 15px;
   background: color-mix(in srgb, var(--brand) 13%, transparent); color: var(--brand);
-  font-weight: 800; font-size: .88rem;
+  font-weight: 800; font-size: .88rem; flex: 0 0 auto;
 }
-.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 15px; }
 .tag {
   font-size: .74rem; font-weight: 650; letter-spacing: .02em;
   padding: 4px 10px; border-radius: 999px;
@@ -280,19 +309,74 @@ p { margin: 0 0 16px; }
   border-left: 4px solid var(--brand);
   background: color-mix(in srgb, var(--brand) 6%, transparent);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 18px 22px; margin: 24px 0;
+  padding: 18px 22px; margin: 0;
 }
 .note p:last-child { margin-bottom: 0; }
 .note strong { color: var(--brand-ink); }
 .note.warn { border-left-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); }
 
+/* ---------- 6b. 箭头链 (chain) -------------------------------------------
+   用于表示因果或流程。横向排列，窄屏自动转纵向。
+   用法：
+     <div class="chain">
+       <div class="chain-node"><b>命令</b><span>policy 发出</span></div>
+       ...
+     </div>
+   节点之间无需手写箭头，由 .chain-node + .chain-node 的 ::before 生成。
+   ------------------------------------------------------------------------ */
+.chain {
+  display: flex; flex-wrap: wrap; align-items: stretch; gap: 14px;
+  margin: 0; padding: 0; list-style: none;
+}
+.chain-node {
+  flex: 1 1 150px; min-width: 0; position: relative;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+}
+.chain-node b { display: block; font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.chain-node span { display: block; font-size: .82rem; color: var(--text-mute); line-height: 1.5; }
+.chain-node.is-accent { border-color: color-mix(in srgb, var(--brand) 45%, var(--border)); background: color-mix(in srgb, var(--brand) 5%, var(--surface)); }
+.chain-node.is-accent b { color: var(--brand-ink); }
+
+/* 箭头：默认向右 */
+.chain-node + .chain-node::before {
+  content: "→"; position: absolute; left: -14px; top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--brand); font-size: 1rem; font-weight: 800; line-height: 1;
+  width: 14px; text-align: center;
+}
+/* 窄屏：转纵向，箭头向下 */
+@media (max-width: 780px) {
+  .chain { flex-direction: column; gap: 26px; }
+  .chain-node + .chain-node::before {
+    content: "↓"; left: 50%; top: -26px;
+    transform: translate(-50%, 0);
+  }
+}
+/* 链的说明文字 */
+.chain-caption { font-size: .84rem; color: var(--text-mute); margin: 0; }
+.chain-caption b { color: var(--text-soft); }
+
 /* ---------- 7. 图表 ------------------------------------------------------ */
-figure { margin: 30px 0; }
+figure { margin: 0; }
 figure img, figure svg {
   width: 100%; border: 1px solid var(--border);
   border-radius: var(--radius); background: var(--surface);
 }
 .fig-box { box-shadow: var(--shadow-sm); }
+
+/* 截图占位：虚线边框 + 说明，提示此处待替换为论文原图 */
+figure.is-placeholder img {
+  border: 2px dashed var(--border-strong);
+  background: var(--bg-soft);
+  opacity: .92;
+}
+figure.is-placeholder figcaption { border-left-color: var(--accent); }
+figure.is-placeholder figcaption::after {
+  content: " · 待替换为论文原图";
+  color: var(--accent); font-weight: 700;
+}
 figcaption {
   font-size: .875rem; color: var(--text-mute); margin-top: 13px;
   padding-left: 14px; border-left: 3px solid var(--border-strong); line-height: 1.62;
