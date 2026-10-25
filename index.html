@@ -50,6 +50,7 @@
   <div class="nav-in">
     <a class="nav-brand" href="#top">World<span>Models</span></a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#abstract">Abstract</a>
       <a href="#overview">Overview</a>
       <a href="#findings">Findings</a>
       <a href="#landscape">Landscape</a>
@@ -68,12 +69,14 @@
 <!-- ======================= Hero ======================= -->
 <section class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Survey <b>·</b> Physical AI <b>·</b> World Models</p>
+    <p class="eyebrow">Comprehensive Survey <b>·</b> Physical AI <b>·</b> World Models</p>
 
     <h1>World Models for Physical AI: Learning to Predict, Plan, and Act in the Real World</h1>
     <p class="lede">
-      A world model can be accurate and still useless to the decision that consumes it. This survey
-      organises the field by <em>what each downstream use measures</em>, not by architecture.
+      A critical survey of predictive world models for embodied agents. We trace how prediction
+      enters simulation, policy learning, planning, and execution-time correction — and examine the
+      experimental evidence for when predictive capability actually improves downstream decisions,
+      and when it does not.
     </p>
 
     <p class="authors"><span>Anonymous Author(s)</span></p>
@@ -86,6 +89,38 @@
       <a class="btn btn-primary" href="#cite">Paper</a>
       <a class="btn" href="#findings">Three findings</a>
       <a class="btn" href="#cite">BibTeX</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Abstract ======================= -->
+<section id="abstract">
+  <div class="wrap">
+    <div class="sec-head prose">
+      <p class="sec-kicker">Abstract</p>
+      <h2>What this survey argues</h2>
+    </div>
+
+    <div class="prose">
+      <p class="dropcap">
+        World models, which predict how environments evolve under actions, increasingly support
+        simulation, policy learning, planning, and evaluation in physical AI. However, differences in
+        representations, action interfaces, and evaluation protocols obscure when better predictions
+        yield better decisions.
+      </p>
+      <p>
+        This survey reviews data foundations, modeling approaches, and applications in robotics,
+        navigation, and autonomous driving. Drawing on experiments and counterexamples, we examine
+        three gaps — between <strong>recursive accuracy and planning utility</strong>, between
+        <strong>evaluator agreement and policy-training outcomes</strong>, and between
+        <strong>predictive information and execution-time correction</strong> — then identify the
+        attribution questions that remain open.
+      </p>
+      <p>
+        The organising claim is deliberately narrow: a gain in prediction fidelity does not establish
+        a gain in decision utility, and the evidence that would show otherwise is often missing from
+        the reported experiment rather than merely inconclusive.
+      </p>
     </div>
   </div>
 </section>
@@ -246,8 +281,9 @@
       <p class="sec-kicker">World–action interfaces</p>
       <h2>What each design actually reads at deployment</h2>
       <p>
-        Three configurations from one study family, drawn on the same axes. The difference is not
-        whether prediction is trained, but which quantity the action head reads when it acts.
+        Train and deploy columns for three configurations from two near-neighbour studies. What
+        changes between them is not whether prediction is trained, but which quantity the action head
+        can read — and what it can still query when it acts.
       </p>
     </div>
 
@@ -255,33 +291,52 @@
       <a href="assets/fig-interfaces.webp" target="_blank" rel="noopener">
         <img src="assets/fig-interfaces.webp" alt="Training and deployment information paths for Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint" width="1665" height="752" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 3.</b> Training and deployment information paths in Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint. Base and Joint are configurations of one study. Gray blocks do not establish parameter freezing, and supervision arrows require final correction.</figcaption>
+      <figcaption><b>Figure 3.</b> Training and deployment information paths in Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint. Base and Joint are configurations of one study. The simplified schematic omits V-JEPA's future-supervision path and some inputs; block shading does not denote parameter freezing, and supervision-arrow details remain to be corrected.</figcaption>
     </figure>
 
-    <div class="grid g3">
+    <div class="grid g2">
       <article class="card reveal">
-        <h3>Base: prediction trains, actions do not read it</h3>
+        <h3>Base: the prediction head is training-only</h3>
         <p>
-          The prediction head exists only during training; at deployment the action head reads the
-          shared backbone. Removing video co-training costs 8.0 RoboTwin and 4.1 LIBERO points with
-          architecture and inference unchanged.
+          Action tokens read current-observation features, not future-video tokens. Removing video
+          co-training leaves architecture and inference unchanged but costs 8.0 RoboTwin and 4.1
+          LIBERO points — more than the spread between configurations of the same family.
         </p>
       </article>
       <article class="card reveal">
-        <h3>V-JEPA Policy: read the context, not the latent</h3>
+        <h3>Joint: one denoiser for video and action</h3>
         <p>
-          The action expert reads predictor context positions and keys/values updated with learnable
-          future queries — not the final predicted future latent.
+          Joint attention and joint denoising let the two modalities inform each other during
+          sampling. This changes training and information flow rather than switching inference alone;
+          generated-frame key/value entries are then replaced with observations after each chunk.
         </p>
       </article>
       <article class="card reveal">
-        <h3>Joint: denoise both, then refresh</h3>
+        <h3>IDM: predict first, then decode</h3>
         <p>
-          Video and action are denoised together, and generated-frame key/value entries are replaced
-          with observations after each chunk. Executing only the decoded action does not remove the
-          future tokens from sampling.
+          IDM generates future representations before actions and trains with noisy video tokens.
+          Physically it leads the family on success while Base leads on completion time, and a
+          pretrained π<sub>0.5</sub> leads on both — three different winners for three endpoints.
         </p>
       </article>
+      <article class="card reveal">
+        <h3>V-JEPA Policy: context keys, but no command query</h3>
+        <p>
+          The action expert reads context-position keys and values updated by learnable future
+          queries, not final predicted latents. Observation, instruction and proprioception condition
+          this path; <strong>candidate robot commands do not query it</strong>.
+        </p>
+      </article>
+    </div>
+
+    <div class="note prose">
+      <p>
+        <strong>Reported protocol and its separate endpoints.</strong> RoboTwin mixes 2,500 clean with
+        25,000 randomized demonstrations over 30k steps, evaluated with 100 trials per task and
+        setting; LIBERO uses 500 demonstrations per ten-task suite, 20k steps, and 2,000 evaluations
+        across 40 tasks. Without video co-training, physical success falls to 10%. Base and IDM
+        latency is 190 versus 810 ms — an endpoint separate from completion time and eventual success.
+      </p>
     </div>
   </div>
 </section>
@@ -374,15 +429,16 @@
       <h2>The evidence table behind these claims</h2>
       <p>
         Each consumer, the original contrast that supports it, and the boundary that limits what the
-        contrast settles. Reproduced here as a placeholder for a screenshot of the original table.
+        contrast settles. Panel B adds the three couplings the literature has not separated, with the
+        control that would separate them.
       </p>
     </div>
 
-    <figure class="fig-zoom is-placeholder reveal">
-      <a href="assets/table-consumer.svg" target="_blank" rel="noopener">
-        <img src="assets/table-consumer.svg" alt="Placeholder for manuscript Table 7 — consumer evidence and diagnostic cases" width="1700" height="940" loading="lazy" decoding="async">
+    <figure class="fig-zoom fig-narrow reveal">
+      <a href="assets/table7.png" target="_blank" rel="noopener">
+        <img src="assets/table7.png" alt="Table 7: Panel A reports consumer evidence for simulation, learning, evaluation, planning and correction; Panel B states the residual couplings and the next control for cases A, B and C" width="719" height="439" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Table 1.</b> Reported consumer evidence and the three diagnostic cases that remain unresolved. Only the final column proposes experiments, and none has been run. Source: manuscript Table 7.</figcaption>
+      <figcaption><b>Table 1.</b> Consumer evidence (Panel A) and diagnostic cases (Panel B). Panel A is reported evidence, including adverse outcomes; in Panel B only the <em>Next control</em> column proposes experiments, and none has been run. Source: manuscript Table 7.</figcaption>
     </figure>
   </div>
 </section>

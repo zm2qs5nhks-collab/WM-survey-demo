@@ -388,6 +388,9 @@ figure img, figure svg {
 .fig-box { box-shadow: var(--shadow-sm); }
 
 /* 截图占位：虚线边框 + 说明，提示此处待替换为论文原图 */
+/* 截图类图：不拉满容器宽度，保持像素清晰 */
+figure.fig-narrow { max-width: 880px; margin-inline: auto; }
+
 figure.is-placeholder img {
   border: 2px dashed var(--border-strong);
   background: var(--bg-soft);
