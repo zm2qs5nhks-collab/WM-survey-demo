@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# 换成你的真实域名
-Sitemap: https://example.com/sitemap.xml
+# Single-page site: no sitemap.xml is published, so no Sitemap line is set.
+# Add one only after generating the file, otherwise the reference 404s.

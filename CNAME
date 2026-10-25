@@ -1,9 +1,0 @@
-# 自定义域名。把这一行换成你自己的域名，不要带 https:// 和斜杠。
-#
-# 例：
-#   surveytopic.com          ← 根域名（apex）
-#   www.surveytopic.com      ← 子域名（推荐同时配好，会自动互相跳转）
-#
-# 填写并推送后，再到仓库 Settings → Pages → Custom domain 填同一个域名，
-# 然后等 DNS 生效并勾选 Enforce HTTPS。
-example.com
