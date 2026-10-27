@@ -51,12 +51,9 @@
     <a class="nav-brand" href="#top">World<span>Models</span></a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#abstract">Abstract</a>
-      <a href="#overview">Overview</a>
-      <a href="#findings">Findings</a>
       <a href="#landscape">Landscape</a>
-      <a href="#interfaces">Interfaces</a>
-      <a href="#evaluation">Evaluation</a>
-      <a href="#execution">Execution</a>
+      <a href="#mechanisms">Mechanisms</a>
+      <a href="#evidence">Evidence</a>
       <a href="#challenges">Open problems</a>
       <a href="#cite">Cite</a>
     </nav>
@@ -94,21 +91,18 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 4.7 18.2 5 18.2 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
         GitHub
       </a>
-      <a class="btn" href="#findings">Three findings</a>
+      <a class="btn" href="#evidence">Evidence</a>
       <a class="btn" href="#cite">BibTeX</a>
     </div>
   </div>
 </section>
 
-<!-- ======================= Abstract ======================= -->
+<!-- ======================= Abstract + findings + organization ======================= -->
 <section id="abstract">
   <div class="wrap">
     <div class="sec-head prose">
       <p class="sec-kicker">Abstract</p>
       <h2>What this survey argues</h2>
-    </div>
-
-    <div class="prose">
       <p class="dropcap">
         World models, which predict how environments evolve under actions, increasingly support
         simulation, policy learning, planning, and evaluation in physical AI. However, differences in
@@ -129,84 +123,6 @@
         the reported experiment rather than merely inconclusive.
       </p>
     </div>
-  </div>
-</section>
-
-<!-- ======================= Overview ======================= -->
-<section id="overview">
-  <div class="wrap">
-    <div class="sec-head prose">
-      <p class="sec-kicker">Overview</p>
-      <h2>Four parts, one question each</h2>
-      <p>
-        The survey moves from what a world model <em>is</em>, to what it is trained on, to where its
-        prediction enters a decision, to whether the reported result tests that use.
-      </p>
-    </div>
-
-    <figure class="fig-zoom reveal">
-      <a href="assets/fig-overview.webp" target="_blank" rel="noopener">
-        <img src="assets/fig-overview.webp" alt="Organization of the four-part survey: foundations, data and representations, learning and decision making, evaluation and synthesis" width="1586" height="992" loading="eager" decoding="async">
-      </a>
-      <figcaption><b>Figure 1.</b> Organization of the four-part survey. Each band is one part; the right column lists its sub-topics. Scenes and curves are conceptual illustrations, not reported experiments — prediction quality, decision utility, and execution reliability require distinct evaluation.</figcaption>
-    </figure>
-
-    <div class="grid g2">
-      <article class="card reveal">
-        <span class="card-num">1</span>
-        <h3>Foundations and scope</h3>
-        <p>
-          What counts as a world model, and what evidence can support a claim about one particular
-          use of it? Includes the review approach and the relation to prior surveys.
-        </p>
-      </article>
-      <article class="card reveal">
-        <span class="card-num">2</span>
-        <h3>Data, representations, and models</h3>
-        <p>
-          Which supervision licenses which query? Passive video, synchronised commands,
-          physical-state labels and recovery annotations each license a different one.
-        </p>
-      </article>
-      <article class="card reveal">
-        <span class="card-num">3</span>
-        <h3>Learning, planning, and decision making</h3>
-        <p>
-          Where does a prediction enter the computation — planning, imagined experience, action
-          decoding, or correction after a new observation?
-        </p>
-      </article>
-      <article class="card reveal">
-        <span class="card-num">4</span>
-        <h3>Evaluation, reliability, and synthesis</h3>
-        <p>
-          Does the reported endpoint test the claimed use? Six evidence levels, safety and runtime
-          checks, and the open questions that remain unattributed.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= Findings ======================= -->
-<section id="findings">
-  <div class="wrap">
-    <div class="sec-head prose">
-      <p class="sec-kicker">Three cross-study findings</p>
-      <h2>Where prediction and decision come apart</h2>
-      <p>
-        Each finding is a case where the reported endpoint does not test the claimed use — not a
-        case where the experiment was inconclusive.
-      </p>
-    </div>
-
-    <div class="note prose">
-      <p>
-        <strong>Numbers are within-study anchors.</strong> Each comes from one study's own protocol
-        and baseline, so figures from different studies are not comparable. The contrast the survey
-        relies on is always one a study reported about itself.
-      </p>
-    </div>
 
     <div class="grid g3">
       <article class="card reveal">
@@ -215,7 +131,7 @@
         <p>
           GNS improves recursive rollouts under perturbed training while worsening clean one-step
           accuracy. ContactWorld's lowest prediction-error growth does not yield its best planning
-          success: 32.3% point clouds against 39.5% full tactile on one 12-task protocol.
+          success: 32.3% point clouds against 39.5% full tactile on one protocol.
         </p>
         <div class="tag-row"><span class="tag">GNS</span><span class="tag alt">ContactWorld</span></div>
       </article>
@@ -223,9 +139,9 @@
         <span class="card-num">02</span>
         <h3>Evaluator agreement</h3>
         <p>
-          DexTouch-WM's evaluator correlates better for WM-Mix (r = .844) than for WM-Robot
-          (.646), yet WM-Robot trains two of three policies better. The better evaluator is not the
-          better data generator.
+          DexTouch-WM's evaluator correlates better for WM-Mix (r = .844) than for WM-Robot (.646),
+          yet WM-Robot trains two of three policies better. The better evaluator is not the better
+          generator.
         </p>
         <div class="tag-row"><span class="tag">DexTouch-WM</span><span class="tag alt">IWS</span></div>
       </article>
@@ -233,12 +149,26 @@
         <span class="card-num">03</span>
         <h3>Execution-time inference</h3>
         <p>
-          Under a fixed oracle context, FutureRTC scores 96.6% from the first generated action and
-          0.9% from index 20. TacPAC reaches 47 → 64% while its Bottle task stays at 40 / 40%.
+          Under a fixed oracle context, FutureRTC scores 96.6% from the first action and 0.9% from
+          index 20. TacPAC reaches 47 → 64% while its Bottle task stays at 40 / 40%.
         </p>
         <div class="tag-row"><span class="tag">FutureRTC</span><span class="tag alt">TacPAC</span></div>
       </article>
     </div>
+
+    <div class="note prose">
+      <p>
+        <strong>Numbers are within-study anchors.</strong> Each comes from one study's own protocol
+        and baseline, so figures from different studies are not comparable.
+      </p>
+    </div>
+
+    <figure class="fig-zoom reveal">
+      <a href="assets/fig-overview.webp" target="_blank" rel="noopener">
+        <img src="assets/fig-overview.webp" alt="Organization of the four-part survey: foundations, data and representations, learning and decision making, evaluation and synthesis" width="1586" height="992" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Figure 1.</b> Organization of the four-part survey. Each band is one part; the right column lists its sub-topics. Scenes and curves are conceptual illustrations, not reported experiments.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -249,9 +179,9 @@
       <p class="sec-kicker">Research landscape</p>
       <h2>Six directions, grouped by what they serve</h2>
       <p>
-        The figure sorts representative systems by publication period and by prediction consumer.
-        Read the columns first, then the years: a direction becomes viable when its column appears,
-        not when the first paper in it is published.
+        Representative systems sorted by publication period and prediction consumer. Read the columns
+        first, then the years: a direction becomes viable when its column appears, not when its first
+        paper is published.
       </p>
     </div>
 
@@ -259,10 +189,10 @@
       <a href="assets/fig-landscape.webp" target="_blank" rel="noopener">
         <img src="assets/fig-landscape.webp" alt="Representative studies arranged by publication period and by prediction consumer, spanning prediction for acting and world models as simulator" width="1700" height="840" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 2.</b> Representative studies arranged by first public appearance or publication period and by prediction consumer. Roles are nonexclusive: the same study may appear in multiple tracks, and first public versions and later conference publications may fall in different years.</figcaption>
+      <figcaption><b>Figure 2.</b> Representative studies arranged by first public appearance or publication period and by prediction consumer. Roles are nonexclusive: the same study may appear in multiple tracks.</figcaption>
     </figure>
 
-    <div class="grid g3">
+    <div class="grid g2">
       <article class="card reveal">
         <h3>Grouped by consumer, not architecture</h3>
         <p>
@@ -271,34 +201,34 @@
         </p>
       </article>
       <article class="card reveal">
-        <h3>The year bands are viability windows</h3>
-        <p>
-          Predict-then-act runs from 2017; unified VLA only from 2020, once vision-language
-          backbones became available. A later column does not supersede an earlier one.
-        </p>
-      </article>
-      <article class="card reveal">
         <h3>Roles are nonexclusive</h3>
         <p>
-          PlaNet and Dreamer appear both under predict-then-act and under latent world modeling.
-          One system can occupy several columns, which is why a single taxonomy of <em>models</em>
-          fails.
+          PlaNet and Dreamer appear both under predict-then-act and under latent world modeling. One
+          system can occupy several columns, which is why a single taxonomy of <em>models</em> fails.
         </p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ======================= Interfaces ======================= -->
-<section id="interfaces">
+<!-- ======================= Where prediction enters ======================= -->
+<section id="mechanisms">
   <div class="wrap">
     <div class="sec-head prose">
-      <p class="sec-kicker">World–action interfaces</p>
-      <h2>What each design actually reads at deployment</h2>
+      <p class="sec-kicker">Where prediction enters</p>
+      <h2>Three interfaces, three different things measured</h2>
       <p>
-        Train and deploy columns for three configurations from two near-neighbour studies. What
-        changes between them is not whether prediction is trained, but which quantity the action head
-        can read — and what it can still query when it acts.
+        The same predictor can feed an action head, an evaluator, or a runtime corrector — and each
+        consumer is scored by a different quantity. The three figures below follow that order.
+      </p>
+    </div>
+
+    <div class="prose">
+      <h3>World–action interfaces</h3>
+      <p>
+        What changes between these designs is not whether prediction is trained, but what the action
+        head can read. Removing video co-training leaves architecture and inference unchanged, yet
+        costs 8.0 RoboTwin and 4.1 LIBERO points and drops physical success to 10%.
       </p>
     </div>
 
@@ -306,65 +236,47 @@
       <a href="assets/fig-interfaces.webp" target="_blank" rel="noopener">
         <img src="assets/fig-interfaces.webp" alt="Training and deployment information paths for Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint" width="1665" height="752" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 3.</b> Training and deployment information paths in Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint. Base and Joint are configurations of one study. The simplified schematic omits V-JEPA's future-supervision path and some inputs; block shading does not denote parameter freezing, and supervision-arrow details remain to be corrected.</figcaption>
+      <figcaption><b>Figure 3.</b> Training and deployment information paths in Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint. Base and Joint are configurations of one study. The schematic omits V-JEPA's future-supervision path and some inputs; block shading does not denote parameter freezing.</figcaption>
     </figure>
 
     <div class="grid g2">
       <article class="card reveal">
         <h3>Base: the prediction head is training-only</h3>
         <p>
-          Action tokens read current-observation features, not future-video tokens. Removing video
-          co-training leaves architecture and inference unchanged but costs 8.0 RoboTwin and 4.1
-          LIBERO points — more than the spread between configurations of the same family.
+          Action tokens read current-observation features, not future-video tokens. The 8.0 and 4.1
+          point losses exceed the spread between configurations of the same family.
         </p>
       </article>
       <article class="card reveal">
-        <h3>Joint: one denoiser for video and action</h3>
+        <h3>Joint and IDM: two ways to use the future</h3>
         <p>
-          Joint attention and joint denoising let the two modalities inform each other during
-          sampling. This changes training and information flow rather than switching inference alone;
-          generated-frame key/value entries are then replaced with observations after each chunk.
-        </p>
-      </article>
-      <article class="card reveal">
-        <h3>IDM: predict first, then decode</h3>
-        <p>
-          IDM generates future representations before actions and trains with noisy video tokens.
-          Physically it leads the family on success while Base leads on completion time, and a
-          pretrained π<sub>0.5</sub> leads on both — three different winners for three endpoints.
+          Joint denoises video and action together; IDM generates future representations before
+          actions. Physically IDM leads the family on success while Base leads on completion time,
+          and a pretrained π<sub>0.5</sub> leads on both.
         </p>
       </article>
       <article class="card reveal">
         <h3>V-JEPA Policy: context keys, but no command query</h3>
         <p>
           The action expert reads context-position keys and values updated by learnable future
-          queries, not final predicted latents. Observation, instruction and proprioception condition
-          this path; <strong>candidate robot commands do not query it</strong>.
+          queries, not final latents. Observation, instruction and proprioception condition this
+          path; <strong>candidate robot commands do not query it</strong>.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Latency is a third endpoint</h3>
+        <p>
+          Base and IDM run at 190 versus 810 ms. That figure is separate from completion time and
+          from eventual success, so none of the three can stand in for another.
         </p>
       </article>
     </div>
 
-    <div class="note prose">
+    <div class="prose">
+      <h3>Evaluation</h3>
       <p>
-        <strong>Reported protocol and its separate endpoints.</strong> RoboTwin mixes 2,500 clean with
-        25,000 randomized demonstrations over 30k steps, evaluated with 100 trials per task and
-        setting; LIBERO uses 500 demonstrations per ten-task suite, 20k steps, and 2,000 evaluations
-        across 40 tasks. Without video co-training, physical success falls to 10%. Base and IDM
-        latency is 190 versus 810 ms — an endpoint separate from completion time and eventual success.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= Evaluation ======================= -->
-<section id="evaluation">
-  <div class="wrap">
-    <div class="sec-head prose">
-      <p class="sec-kicker">Evaluation</p>
-      <h2>One model, two rankings</h2>
-      <p>
-        Both panels use the same study and the same four tasks. Panel (a) asks whether the model
-        predicts policy outcomes; panel (b) asks whether data it generates trains a better policy.
+        One model can be the better evaluator and the worse data generator. Both panels use the same
+        study and the same four tasks; they differ only in what they rank.
       </p>
     </div>
 
@@ -372,39 +284,32 @@
       <a href="assets/fig-eval-train.webp" target="_blank" rel="noopener">
         <img src="assets/fig-eval-train.webp" alt="Panel a: mean Pearson correlation of evaluator agreement for WM-Mix and WM-Robot. Panel b: mean normalized task score for three policies trained with WM-Mix, WM-Robot, and an all-real reference" width="1700" height="738" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 5.</b> Evaluator agreement versus policy-training utility, using four-task means from DexTouch-WM's separate Tables III and IV. Imagined-data recipes use 100 real plus 100 imagined trajectories; the all-real reference uses 200 real trajectories.</figcaption>
+      <figcaption><b>Figure 4.</b> Evaluator agreement versus policy-training utility, using four-task means from DexTouch-WM's separate Tables III and IV. Imagined-data recipes use 100 real plus 100 imagined trajectories; the all-real reference uses 200 real trajectories.</figcaption>
     </figure>
 
     <div class="grid g2">
       <article class="card reveal">
         <h3>Panel (a) ranks the evaluator</h3>
         <p>
-          WM-Mix reaches r = .844 and WM-Robot .646 as a mean over four tasks. If evaluator
-          agreement were the criterion, WM-Mix would be selected.
+          WM-Mix reaches r = .844 and WM-Robot .646 as a mean over four tasks. If evaluator agreement
+          were the criterion, WM-Mix would be selected.
         </p>
       </article>
       <article class="card reveal">
         <h3>Panel (b) ranks the training data</h3>
         <p>
-          WM-Robot beats WM-Mix on π<sub>0.5</sub> (0.563 vs 0.494) and X-VLA (0.506 vs 0.400),
-          and loses on FTP-1 (0.688 vs 0.694). Two of three learners favour the <em>low-agreement</em>
-          generator.
+          WM-Robot beats WM-Mix on π<sub>0.5</sub> (0.563 vs 0.494) and X-VLA (0.506 vs 0.400), and
+          loses on FTP-1 (0.688 vs 0.694). Two of three learners favour the low-agreement generator.
         </p>
       </article>
     </div>
-  </div>
-</section>
 
-<!-- ======================= Execution ======================= -->
-<section id="execution">
-  <div class="wrap">
-    <div class="sec-head prose">
-      <p class="sec-kicker">Execution-time correction</p>
-      <h2>Two ways to act before a chunk expires</h2>
+    <div class="prose">
+      <h3>Execution-time correction</h3>
       <p>
         Temporal alignment decides <em>which</em> actions to execute; a predictive reference decides
-        whether the remaining ones can be corrected. These are separate mechanisms and are often
-        reported as one latency effect.
+        whether the remaining ones can be corrected. Two mechanisms, often reported as one latency
+        effect.
       </p>
     </div>
 
@@ -412,7 +317,7 @@
       <a href="assets/fig-execution.webp" target="_blank" rel="noopener">
         <img src="assets/fig-execution.webp" alt="FutureRTC anticipating execution-time context and TacPAC correcting an unexecuted suffix with fresh tactile feedback" width="1649" height="906" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 6.</b> Execution-time context anticipation in FutureRTC and feedback-based suffix correction in TacPAC. The schematic is not a shared latency scale: the two panels illustrate different mechanisms, not comparable timings.</figcaption>
+      <figcaption><b>Figure 5.</b> Execution-time context anticipation in FutureRTC and feedback-based suffix correction in TacPAC. The schematic is not a shared latency scale: the two panels illustrate different mechanisms, not comparable timings.</figcaption>
     </figure>
 
     <div class="grid g2">
@@ -420,16 +325,15 @@
         <h3>FutureRTC: anticipate when the action will run</h3>
         <p>
           The next chunk is generated against an anticipated execution-time context instead of the
-          stale observation time, so it can start from index 0. Under a fixed oracle context, the
-          choice of index moves success from 96.6% to 0.9%.
+          stale observation time. Under a fixed oracle context, the choice of index moves success
+          from 96.6% to 0.9%.
         </p>
       </article>
       <article class="card reveal">
         <h3>TacPAC: correct only what has not run</h3>
         <p>
           The committed prefix stays; the unexecuted suffix is revised using fresh tactile feedback
-          and a cached tactile-action reference saved with the plan. Success rises 47 → 64% while
-          the Bottle task stays at 40 / 40%.
+          and a cached tactile-action reference. Success rises 47 → 64% while Bottle stays at 40 / 40%.
         </p>
       </article>
     </div>
@@ -437,15 +341,15 @@
 </section>
 
 <!-- ======================= Evidence table ======================= -->
-<section id="synthesis">
+<section id="evidence">
   <div class="wrap">
     <div class="sec-head prose">
-      <p class="sec-kicker">Synthesis</p>
-      <h2>The evidence table behind these claims</h2>
+      <p class="sec-kicker">Evidence</p>
+      <h2>The table behind these claims</h2>
       <p>
-        Each consumer, the original contrast that supports it, and the boundary that limits what the
-        contrast settles. Panel B adds the three couplings the literature has not separated, with the
-        control that would separate them.
+        Each consumer, the contrast that supports it, and the boundary that limits what the contrast
+        settles. Panel B names the couplings the literature has not separated, with the control that
+        would separate them.
       </p>
     </div>
 
@@ -455,30 +359,6 @@
       </a>
       <figcaption><b>Table 1.</b> Consumer evidence (Panel A) and diagnostic cases (Panel B). Panel A is reported evidence, including adverse outcomes; in Panel B only the <em>Next control</em> column proposes experiments, and none has been run. Source: manuscript Table 7.</figcaption>
     </figure>
-
-    <div class="grid g3">
-      <article class="card reveal">
-        <h3>Robustness is not goal-scored utility</h3>
-        <p>
-          GNS's recursive robustness cannot replace ContactWorld's planning endpoint: the first
-          scores prediction error, the second scores distance to a goal.
-        </p>
-      </article>
-      <article class="card reveal">
-        <h3>Ranking is not generator selection</h3>
-        <p>
-          DexTouch-WM's evaluator ranking does not select a training-data generator independently of
-          the learner, as IWS's mixture results also show.
-        </p>
-      </article>
-      <article class="card reveal">
-        <h3>Index alignment is not reference access</h3>
-        <p>
-          FutureRTC aligns the action index to a time origin; TacPAC changes access to a cached
-          predicted tactile reference. Two mechanisms, often reported as one runtime effect.
-        </p>
-      </article>
-    </div>
   </div>
 </section>
 
@@ -491,7 +371,7 @@
       <p>Each item is a testable gap, stated the way the survey argues future work should state them.</p>
     </div>
 
-    <div class="grid g3">
+    <div class="grid g2">
       <article class="card reveal">
         <span class="card-num">01</span>
         <h3>Unobserved candidates</h3>
@@ -503,30 +383,14 @@
       </article>
       <article class="card reveal">
         <span class="card-num">02</span>
-        <h3>Learner-dependent utility</h3>
+        <h3>Guarantees without interfaces</h3>
         <p>
-          Evaluator agreement cannot select a data generator independently of the learner. One
-          correlation statistic cannot substitute for the downstream training recipe.
+          Formal certificates assume a valid state and uncertainty model plus a stabilising policy,
+          a feasible backup, or an admissible safe input. A visual forecast provides none of them.
         </p>
       </article>
       <article class="card reveal">
         <span class="card-num">03</span>
-        <h3>Mixed runtime endpoints</h3>
-        <p>
-          Correction access, action-index alignment and update timing are distinct operations. No
-          reported study collapses them into a single runtime-efficiency claim.
-        </p>
-      </article>
-      <article class="card reveal">
-        <span class="card-num">04</span>
-        <h3>Guarantees without interfaces</h3>
-        <p>
-          Formal certificates assume a valid state and uncertainty model plus a stabilising policy,
-          a feasible backup, or an admissible safe input. A visual forecast supplies none of them.
-        </p>
-      </article>
-      <article class="card reveal">
-        <span class="card-num">05</span>
         <h3>Intervention harms</h3>
         <p>
           Automatic repair pipelines score below policy-only baselines on physical tasks (0–25%
@@ -535,7 +399,7 @@
         </p>
       </article>
       <article class="card reveal">
-        <span class="card-num">06</span>
+        <span class="card-num">04</span>
         <h3>Sampling bias</h3>
         <p>
           The Core Evidence Set is mechanism-focused, not representative. The prevalence of benefits

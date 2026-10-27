@@ -17,15 +17,21 @@ one claim and is anchored by one figure taken from the manuscript:
 
 | Section | Anchor | Claim it makes |
 |---|---|---|
-| Abstract | — | Prediction fidelity does not establish decision utility |
-| Overview | Fig. 1 | Four parts, one question each |
-| Findings | — | Three cases where the reported endpoint does not test the claimed use |
-| Landscape | Fig. 2 | Six directions, grouped by consumer rather than architecture |
-| Interfaces | Fig. 3 | What each design actually reads at deployment |
-| Evaluation | Fig. 5 | One model, two rankings |
-| Execution | Fig. 6 | Two separate mechanisms behind "prediction at runtime" |
-| Synthesis | Table 7 | The evidence table, and what remains unrun |
-| Open problems | — | Six gaps the survey cannot settle |
+| Abstract | — | The thesis, the three gaps, and how the survey is organised (Fig. 1) |
+| Research landscape | Fig. 2 | Six directions, grouped by consumer rather than architecture |
+| Where prediction enters | Figs. 3–5 | Three interfaces, three different quantities measured |
+| Evidence | Table 7 | The contrasts behind the claims, and what remains unrun |
+| Open problems | — | Four gaps the survey cannot settle |
+| Citation | — | BibTeX |
+
+The three cross-study findings appear once, as the card row under the abstract, and are then
+*elaborated* by figures rather than restated. An earlier draft repeated them in a separate Findings
+section and again in a Synthesis row, which is what made the page read as long.
+
+**Figure numbering differs from the manuscript.** The page numbers figures in reading order (1–5)
+and the table as Table 1. Mapping: page Fig. 1–3 → manuscript Fig. 1–3, page Fig. 4 → manuscript
+Fig. 5, page Fig. 5 → manuscript Fig. 6. The manuscript's Fig. 4 is not embedded in the source docx
+and is therefore not reproduced.
 
 ## Repository layout
 
