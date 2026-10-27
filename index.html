@@ -219,7 +219,7 @@
       <h2>Three interfaces, three different things measured</h2>
       <p>
         The same predictor can feed an action head, an evaluator, or a runtime corrector — and each
-        consumer is scored by a different quantity. The three figures below follow that order.
+        consumer is scored by a different quantity.
       </p>
     </div>
 
@@ -243,8 +243,8 @@
       <article class="card reveal">
         <h3>Base: the prediction head is training-only</h3>
         <p>
-          Action tokens read current-observation features, not future-video tokens. The 8.0 and 4.1
-          point losses exceed the spread between configurations of the same family.
+          Action tokens read current-observation features, not future-video tokens. That loss is
+          larger than the spread between configurations of the same family.
         </p>
       </article>
       <article class="card reveal">
@@ -266,8 +266,8 @@
       <article class="card reveal">
         <h3>Latency is a third endpoint</h3>
         <p>
-          Base and IDM run at 190 versus 810 ms. That figure is separate from completion time and
-          from eventual success, so none of the three can stand in for another.
+          Base and IDM run at 190 versus 810 ms — an endpoint separate from completion time and from
+          success, so none of the three stands in for another.
         </p>
       </article>
     </div>
@@ -298,8 +298,8 @@
       <article class="card reveal">
         <h3>Panel (a) ranks the evaluator</h3>
         <p>
-          WM-Mix reaches r = .844 and WM-Robot .646 as a mean over four tasks. If evaluator agreement
-          were the criterion, WM-Mix would be selected.
+          WM-Mix scores higher on this four-task mean. If evaluator agreement were the criterion,
+          WM-Mix would be selected.
         </p>
       </article>
       <article class="card reveal">
@@ -332,16 +332,15 @@
       <article class="card reveal">
         <h3>FutureRTC: anticipate when the action will run</h3>
         <p>
-          The next chunk is generated against an anticipated execution-time context instead of the
-          stale observation time. Under a fixed oracle context, the choice of index moves success
-          from 96.6% to 0.9%.
+          The next chunk is generated against the context it will meet at execution, not the stale
+          observation time — which is what lets it start from index 0 rather than deeper into the chunk.
         </p>
       </article>
       <article class="card reveal">
         <h3>TacPAC: correct only what has not run</h3>
         <p>
-          The committed prefix stays; the unexecuted suffix is revised using fresh tactile feedback
-          and a cached tactile-action reference. Success rises 47 → 64% while Bottle stays at 40 / 40%.
+          The committed prefix stays; only the unexecuted suffix is revised, using fresh tactile
+          feedback and a cached tactile-action reference saved with the plan.
         </p>
       </article>
     </div>
