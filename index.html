@@ -140,8 +140,8 @@
         <h3>Evaluator agreement</h3>
         <p>
           DexTouch-WM's evaluator correlates better for WM-Mix (r = .844) than for WM-Robot (.646),
-          yet WM-Robot trains two of three policies better. The better evaluator is not the better
-          generator.
+          yet WM-Robot trains two of three policies better. Dropping X-VLA's Stand Bottle task — where
+          Mix scores 0.000 — reverses that learner's ordering, so the aggregate is task-sensitive.
         </p>
         <div class="tag-row"><span class="tag">DexTouch-WM</span><span class="tag alt">IWS</span></div>
       </article>
@@ -281,10 +281,17 @@
     </div>
 
     <figure class="fig-zoom reveal">
+      <a href="assets/fig-claim-evidence.webp" target="_blank" rel="noopener">
+        <img src="assets/fig-claim-evidence.webp" alt="From world-model design to claim-matched evidence: the three design axes above, and below them three evidence contrasts pairing GNS with ContactWorld, DexTouch evaluation with training, and FutureRTC with TacPAC" width="1672" height="941" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Figure 4.</b> From world-model design to claim-matched evidence. Three contrasts distinguish recursive-prediction fidelity from planning utility, evaluator agreement from policy-training outcomes, and execution-time anticipation from correction. GNS/ContactWorld and FutureRTC/TacPAC are independent study examples, not matched head-to-head experiments; the visual separators group examples only.</figcaption>
+    </figure>
+
+    <figure class="fig-zoom reveal">
       <a href="assets/fig-eval-train.webp" target="_blank" rel="noopener">
         <img src="assets/fig-eval-train.webp" alt="Panel a: mean Pearson correlation of evaluator agreement for WM-Mix and WM-Robot. Panel b: mean normalized task score for three policies trained with WM-Mix, WM-Robot, and an all-real reference" width="1700" height="738" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 4.</b> Evaluator agreement versus policy-training utility, using four-task means from DexTouch-WM's separate Tables III and IV. Imagined-data recipes use 100 real plus 100 imagined trajectories; the all-real reference uses 200 real trajectories.</figcaption>
+      <figcaption><b>Figure 5.</b> Evaluator agreement versus policy-training utility, using four-task means from DexTouch-WM's separate Tables III and IV. Imagined-data recipes use 100 real plus 100 imagined trajectories; the all-real reference uses 200 real trajectories.</figcaption>
     </figure>
 
     <div class="grid g2">
@@ -299,7 +306,8 @@
         <h3>Panel (b) ranks the training data</h3>
         <p>
           WM-Robot beats WM-Mix on π<sub>0.5</sub> (0.563 vs 0.494) and X-VLA (0.506 vs 0.400), and
-          loses on FTP-1 (0.688 vs 0.694). Two of three learners favour the low-agreement generator.
+          loses on FTP-1 (0.688 vs 0.694). Exclusion of X-VLA's Stand Bottle task reverses that
+          learner, so the count is task-sensitive.
         </p>
       </article>
     </div>
@@ -317,7 +325,7 @@
       <a href="assets/fig-execution.webp" target="_blank" rel="noopener">
         <img src="assets/fig-execution.webp" alt="FutureRTC anticipating execution-time context and TacPAC correcting an unexecuted suffix with fresh tactile feedback" width="1649" height="906" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 5.</b> Execution-time context anticipation in FutureRTC and feedback-based suffix correction in TacPAC. The schematic is not a shared latency scale: the two panels illustrate different mechanisms, not comparable timings.</figcaption>
+      <figcaption><b>Figure 6.</b> Execution-time context anticipation in FutureRTC and feedback-based suffix correction in TacPAC. The schematic is not a shared latency scale: the two panels illustrate different mechanisms, not comparable timings.</figcaption>
     </figure>
 
     <div class="grid g2">
