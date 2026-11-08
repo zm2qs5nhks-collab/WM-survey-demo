@@ -52,8 +52,8 @@
     <nav class="nav-links" aria-label="Sections">
       <a href="#abstract">Abstract</a>
       <a href="#landscape">Landscape</a>
+      <a href="#data">Data</a>
       <a href="#mechanisms">Mechanisms</a>
-      <a href="#evidence">Evidence</a>
       <a href="#challenges">Open problems</a>
       <a href="#cite">Cite</a>
     </nav>
@@ -78,9 +78,6 @@
 
     <p class="authors"><span>Anonymous Author(s)</span></p>
     <p class="affil">Manuscript submitted for review &nbsp;·&nbsp; 2026</p>
-    <p class="author-note">
-      Coverage Corpus 758 publication families &nbsp;·&nbsp; Core Evidence Set 17 study families
-    </p>
 
     <div class="cta">
       <a class="btn btn-primary" href="#cite">
@@ -91,23 +88,24 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 4.7 18.2 5 18.2 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
         GitHub
       </a>
-      <a class="btn" href="#evidence">Evidence</a>
+      <a class="btn" href="#mechanisms">Mechanisms</a>
       <a class="btn" href="#cite">BibTeX</a>
     </div>
   </div>
 </section>
 
-<!-- ======================= Abstract + findings + organization ======================= -->
+<!-- ======================= Abstract ======================= -->
 <section id="abstract">
   <div class="wrap">
     <div class="sec-head prose">
       <p class="sec-kicker">Abstract</p>
       <h2>What this survey argues</h2>
       <p class="dropcap">
-        World models, which predict how environments evolve under actions, increasingly support
-        simulation, policy learning, planning, and evaluation in physical AI. However, differences in
-        representations, action interfaces, and evaluation protocols obscure when better predictions
-        yield better decisions.
+        World models predict environmental evolution; action-conditioned variants model the
+        consequences of specified actions. These models increasingly support simulation, policy
+        learning, planning, and evaluation in physical AI. However, differences in representations,
+        action interfaces, and evaluation protocols obscure when better predictions yield better
+        decisions.
       </p>
       <p>
         This survey reviews data foundations, modeling approaches, and applications in robotics,
@@ -165,9 +163,9 @@
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-overview.webp" target="_blank" rel="noopener">
-        <img src="assets/fig-overview.webp" alt="Organization of the four-part survey: foundations, data and representations, learning and decision making, evaluation and synthesis" width="1586" height="992" loading="lazy" decoding="async">
+        <img src="assets/fig-overview.webp" alt="Organization of the four-part survey: foundations, data and representations, learning and decision making, evaluation and synthesis" width="1700" height="1003" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 1.</b> Organization of the four-part survey. Each band is one part; the right column lists its sub-topics. Scenes and curves are conceptual illustrations, not reported experiments.</figcaption>
+      <figcaption><b>Figure 1.</b> Organization of the four-part survey. Scenes and curves are conceptual illustrations, not reported experiments; prediction quality, decision utility, and execution reliability require distinct evaluation.</figcaption>
     </figure>
   </div>
 </section>
@@ -187,9 +185,9 @@
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-landscape.webp" target="_blank" rel="noopener">
-        <img src="assets/fig-landscape.webp" alt="Representative studies arranged by publication period and by prediction consumer, spanning prediction for acting and world models as simulator" width="1700" height="840" loading="lazy" decoding="async">
+        <img src="assets/fig-landscape.webp" alt="Illustrative map of prediction for acting, model-based planning and learning, and evaluation resources" width="1700" height="849" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 2.</b> Representative studies arranged by first public appearance or publication period and by prediction consumer. Roles are nonexclusive: the same study may appear in multiple tracks.</figcaption>
+      <figcaption><b>Figure 2.</b> Illustrative map of prediction for acting, model-based planning and learning, and evaluation resources. Open X-Embodiment is a data resource; LIBERO, CALVIN, RLBench, and ManiSkill are benchmarks or simulation resources. Positions indicate thematic relationships; preprint and publication years may differ.</figcaption>
     </figure>
 
     <div class="grid g2">
@@ -197,7 +195,7 @@
         <h3>Grouped by consumer, not architecture</h3>
         <p>
           Four columns generate actions — predict-then-act, shared backbone, unified VLA, latent
-          world modeling. Two serve as learned environments: policy learning and policy evaluation.
+          world modeling. Two serve as learned environments: policy learning and evaluation.
         </p>
       </article>
       <article class="card reveal">
@@ -205,6 +203,46 @@
         <p>
           PlaNet and Dreamer appear both under predict-then-act and under latent world modeling. One
           system can occupy several columns, which is why a single taxonomy of <em>models</em> fails.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= Data and representations ======================= -->
+<section id="data">
+  <div class="wrap">
+    <div class="sec-head prose">
+      <p class="sec-kicker">Data and representations</p>
+      <h2>Broad video is not yet a command interface</h2>
+      <p>
+        The second part connects data sources, predictive representations, downstream uses, and
+        generalization. Its point is a bridge: a model trained on observed motion still needs a path
+        to executable commands.
+      </p>
+    </div>
+
+    <figure class="fig-zoom reveal">
+      <a href="assets/fig-data-map.webp" target="_blank" rel="noopener">
+        <img src="assets/fig-data-map.webp" alt="Overview of data sources, predictive representations, downstream uses, and generalization" width="1700" height="896" loading="lazy" decoding="async">
+      </a>
+      <figcaption><b>Figure 3.</b> Overview of data sources, predictive representations, downstream uses, and generalization. Broad video experience needs a bridge to executable commands.</figcaption>
+    </figure>
+
+    <div class="grid g2">
+      <article class="card reveal">
+        <h3>Two ways to bridge from video to commands</h3>
+        <p>
+          V-JEPA 2 freezes an action-free pretrained encoder, then trains a predictor on synchronized
+          robot observations and end-effector changes. DreamDojo learns latent-action proxies from
+          human video, then replaces them with robot actions in post-training.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Graph models update state, they do not acquire it</h3>
+        <p>
+          GNS and MeshGraphNets integrate predicted accelerations or node outputs from a supplied
+          physical state, so state acquisition sits outside what they test.
         </p>
       </article>
     </div>
@@ -234,9 +272,9 @@
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-interfaces.webp" target="_blank" rel="noopener">
-        <img src="assets/fig-interfaces.webp" alt="Training and deployment information paths for Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint" width="1665" height="752" loading="lazy" decoding="async">
+        <img src="assets/fig-interfaces.webp" alt="Training and deployment information paths for Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint" width="1700" height="875" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 3.</b> Training and deployment information paths in Fast-WAM Base, V-JEPA Policy and Fast-WAM Joint. Base and Joint are configurations of one study. The schematic omits V-JEPA's future-supervision path and some inputs; block shading does not denote parameter freezing.</figcaption>
+      <figcaption><b>Figure 4.</b> Training and deployment information paths in Fast-WAM Base, V-JEPA Policy, and Fast-WAM Joint. Base and Joint are configurations of one study. V-JEPA Policy uses future-latent supervision during training and predictor context during action generation.</figcaption>
     </figure>
 
     <div class="grid g2">
@@ -282,16 +320,16 @@
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-claim-evidence.webp" target="_blank" rel="noopener">
-        <img src="assets/fig-claim-evidence.webp" alt="From world-model design to claim-matched evidence: the three design axes above, and below them three evidence contrasts pairing GNS with ContactWorld, DexTouch evaluation with training, and FutureRTC with TacPAC" width="1672" height="941" loading="lazy" decoding="async">
+        <img src="assets/fig-claim-evidence.webp" alt="From world-model design to claim-matched evidence: the three design axes above, and below them three evidence contrasts pairing GNS with ContactWorld, DexTouch evaluation with training, and FutureRTC with TacPAC" width="1700" height="836" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 4.</b> From world-model design to claim-matched evidence. Three contrasts distinguish recursive-prediction fidelity from planning utility, evaluator agreement from policy-training outcomes, and execution-time anticipation from correction. GNS/ContactWorld and FutureRTC/TacPAC are independent study examples, not matched head-to-head experiments; the visual separators group examples only.</figcaption>
+      <figcaption><b>Figure 5.</b> From world-model design to claim-matched evidence. Three contrasts distinguish recursive fidelity from planning utility, evaluator agreement from training outcomes, and execution-time anticipation from correction. GNS/ContactWorld and FutureRTC/TacPAC are independent studies rather than matched experiments.</figcaption>
     </figure>
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-eval-train.webp" target="_blank" rel="noopener">
-        <img src="assets/fig-eval-train.webp" alt="Panel a: mean Pearson correlation of evaluator agreement for WM-Mix and WM-Robot. Panel b: mean normalized task score for three policies trained with WM-Mix, WM-Robot, and an all-real reference" width="1700" height="738" loading="lazy" decoding="async">
+        <img src="assets/fig-eval-train.webp" alt="Panel A: mean Pearson correlation of evaluator agreement for WM-Mix and WM-Robot. Panel B: mean normalized task score for three policies trained with WM-Mix, WM-Robot, and an all-real reference" width="1700" height="702" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 5.</b> Evaluator agreement versus policy-training utility, using four-task means from DexTouch-WM's separate Tables III and IV. Imagined-data recipes use 100 real plus 100 imagined trajectories; the all-real reference uses 200 real trajectories.</figcaption>
+      <figcaption><b>Figure 6.</b> Evaluator agreement and policy-training outcomes from separate DexTouch-WM experiments. Panel (a) shows four-task mean evaluator Pearson correlations from Table III; panel (b) plots four-task mean normalized training scores computed from Table IV. Imagined-data conditions use 100 real plus 100 imagined trajectories; the all-real reference uses 200 real trajectories.</figcaption>
     </figure>
 
     <div class="grid g2">
@@ -323,9 +361,9 @@
 
     <figure class="fig-zoom reveal">
       <a href="assets/fig-execution.webp" target="_blank" rel="noopener">
-        <img src="assets/fig-execution.webp" alt="FutureRTC anticipating execution-time context and TacPAC correcting an unexecuted suffix with fresh tactile feedback" width="1649" height="906" loading="lazy" decoding="async">
+        <img src="assets/fig-execution.webp" alt="FutureRTC anticipating execution-time context and TacPAC combining fresh tactile feedback with cached predictive context to correct an unexecuted action suffix" width="1700" height="794" loading="lazy" decoding="async">
       </a>
-      <figcaption><b>Figure 6.</b> Execution-time context anticipation in FutureRTC and feedback-based suffix correction in TacPAC. The schematic is not a shared latency scale: the two panels illustrate different mechanisms, not comparable timings.</figcaption>
+      <figcaption><b>Figure 7.</b> FutureRTC anticipates execution-time context; TacPAC combines fresh tactile feedback with cached predictive context to correct an unexecuted action suffix. The executed prefix is unchanged. The panels illustrate distinct mechanisms on schematic, not comparable, timelines.</figcaption>
     </figure>
 
     <div class="grid g2">
@@ -344,28 +382,6 @@
         </p>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- ======================= Evidence table ======================= -->
-<section id="evidence">
-  <div class="wrap">
-    <div class="sec-head prose">
-      <p class="sec-kicker">Evidence</p>
-      <h2>The table behind these claims</h2>
-      <p>
-        Each consumer, the contrast that supports it, and the boundary that limits what the contrast
-        settles. Panel B names the couplings the literature has not separated, with the control that
-        would separate them.
-      </p>
-    </div>
-
-    <figure class="fig-zoom fig-narrow reveal">
-      <a href="assets/table7.png" target="_blank" rel="noopener">
-        <img src="assets/table7.png" alt="Table 7: Panel A reports consumer evidence for simulation, learning, evaluation, planning and correction; Panel B states the residual couplings and the next control for cases A, B and C" width="719" height="439" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Table 1.</b> Consumer evidence (Panel A) and diagnostic cases (Panel B). Panel A is reported evidence, including adverse outcomes; in Panel B only the <em>Next control</em> column proposes experiments, and none has been run. Source: manuscript Table 7.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -409,9 +425,8 @@
         <span class="card-num">04</span>
         <h3>Sampling bias</h3>
         <p>
-          The Core Evidence Set is mechanism-focused, not representative. The prevalence of benefits
-          and failures cannot be inferred from it, and inclusion rationales were recorded
-          retrospectively.
+          The evidence set is mechanism-focused, not representative. The prevalence of benefits and
+          failures cannot be inferred from it, and inclusion rationales were recorded retrospectively.
         </p>
       </article>
     </div>
@@ -434,9 +449,7 @@
              Plan, and Act in the Real World},
   author  = {Anonymous Author(s)},
   journal = {Manuscript submitted for review},
-  year    = {2026},
-  note    = {Coverage Corpus: 758 publication families;
-             Core Evidence Set: 17 study families}
+  year    = {2026}
 }</code></pre>
     </div>
   </div>
@@ -450,11 +463,11 @@
     <div>
       <p><strong>World Models for Physical AI</strong> — survey site</p>
       <p>© <span id="year">2026</span>. Tables reproduce selected results from the manuscript; consult the paper for authoritative values.</p>
-      <p>Page last updated: <span id="updated">2026-10-24</span></p>
+      <p>Page last updated: <span id="updated">2026-11-08</span></p>
     </div>
     <div>
-      <p><strong>Scope</strong></p>
-      <p>Coverage Corpus 758 families · Core Evidence Set 17 families</p>
+      <p><strong>Note</strong></p>
+      <p>Figures are the manuscript's own diagrams. Every number on this page is a within-study anchor.</p>
       <p>No cookies, no tracking, no third-party requests.</p>
     </div>
   </div>

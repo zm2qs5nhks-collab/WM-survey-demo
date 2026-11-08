@@ -17,10 +17,10 @@ one claim and is anchored by one figure taken from the manuscript:
 
 | Section | Anchor | Claim it makes |
 |---|---|---|
-| Abstract | — | The thesis, the three gaps, and how the survey is organised (Fig. 1) |
+| Abstract | Fig. 1 | The thesis, the three gaps, and how the survey is organised |
 | Research landscape | Fig. 2 | Six directions, grouped by consumer rather than architecture |
-| Where prediction enters | Figs. 3–6 | Three interfaces, three different quantities measured |
-| Evidence | Table 7 | The contrasts behind the claims, and what remains unrun |
+| Data and representations | Fig. 3 | Broad video is not yet a command interface |
+| Where prediction enters | Figs. 4–7 | Three interfaces, three different quantities measured |
 | Open problems | — | Four gaps the survey cannot settle |
 | Citation | — | BibTeX |
 
@@ -28,10 +28,10 @@ The three cross-study findings appear once, as the card row under the abstract, 
 *elaborated* by figures rather than restated. An earlier draft repeated them in a separate Findings
 section and again in a Synthesis row, which is what made the page read as long.
 
-**Figure numbering matches the manuscript 1:1.** Page Figures 1–6 are the manuscript's Figures 1–6,
-and the only table on the page is the manuscript's Table 7 (labelled Table 1 here). The manuscript's
-Figure 4 was missing from an earlier PDF revision and is now included; if a future revision drops or
-renumbers a figure, update the `<figcaption>` labels so this correspondence stays true.
+**Figure numbering matches the manuscript 1:1.** Page Figures 1–7 are the manuscript's Figures 1–7.
+There is no table on the page: an earlier revision reproduced a screenshot of the manuscript's
+synthesis table, which the 8 Nov revision removed, so the section went with it. If a future
+revision renumbers figures, update the <figcaption> labels so this correspondence stays true.
 
 ## Repository layout
 
